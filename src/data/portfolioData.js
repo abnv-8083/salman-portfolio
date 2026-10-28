@@ -30,7 +30,7 @@ export const RECOGNITION_ITEMS = [
     title: "World Health Organization",
     entity: "WHO Hall of Fame",
     badge: "GLOBAL RECOGNITION",
-    accent: "#C7FF4A",
+    accent: "#C5FF4A",
     vulnerability: "Insecure Direct Object Reference (IDOR)",
     summary: "Recognized in the official WHO Hall of Fame for responsible disclosure of an IDOR vulnerability affecting web systems. Safely reported, verified, and remediated.",
     impact: "Protected global health administrative endpoints from unauthorized data access.",
@@ -43,7 +43,7 @@ export const RECOGNITION_ITEMS = [
     title: "European Commission",
     entity: "European Union",
     badge: "OFFICIAL ACKNOWLEDGMENT",
-    accent: "#6C8CFF",
+    accent: "#C5FF4A",
     vulnerability: "Sensitive Backup-File Exposure Vulnerability",
     summary: "Acknowledged by the European Commission for responsible vulnerability disclosure uncovering an exposed backup archive on official commission digital infrastructure.",
     impact: "Prevented unauthorized exposure of configuration data and server artifacts.",
@@ -56,7 +56,7 @@ export const RECOGNITION_ITEMS = [
     title: "Belgium Gov & CERT-In",
     entity: "National Security Authorities",
     badge: "GOVERNMENT DISCLOSURE",
-    accent: "#00E5FF",
+    accent: "#C5FF4A",
     vulnerability: "Infrastructure Vulnerability & Configuration Flaws",
     summary: "Reported validated security findings to the Belgium Government and the Indian Computer Emergency Response Team (CERT-In) following strict responsible disclosure protocol.",
     impact: "Strengthened national critical web assets against reconnaissance and unauthorized access.",
@@ -69,7 +69,7 @@ export const RECOGNITION_ITEMS = [
     title: "Brototype Cyber Hunt Challenge",
     entity: "Live Security CTF / Hackathon",
     badge: "1ST PLACE WINNER",
-    accent: "#FFB020",
+    accent: "#C5FF4A",
     vulnerability: "8 High/Critical Vulnerabilities Identified",
     summary: "Secured 1st Place Champion in a high-intensity penetration testing challenge by finding 8 security flaws in live scope, winning ₹10,000 cash award.",
     impact: "Recognized for rapid vulnerability chain construction, thorough reporting, and precision exploitation.",
@@ -102,8 +102,8 @@ export const EXPERTISE_CATEGORIES = [
       { name: "Insecure Direct Object Reference (IDOR)", level: "High Impact", desc: "Bypassing horizontal & vertical authorization boundaries across API endpoints." },
       { name: "Cross-Site Scripting (XSS)", level: "Exploitation", desc: "DOM-based, Reflected, and Stored XSS vectors with CSP evasion techniques." },
       { name: "Cross-Site Request Forgery (CSRF)", level: "Exploitation", desc: "State-changing request hijacking, SameSite attribute circumvention, and token validation flaws." },
-      { name: "Authentication and OTP Bypass", level: "Critical", desc: "Logic vulnerabilities in multi-factor workflows, rate-limit circumvention, and replay vulnerabilities." },
-      { name: "Session Management & Fixation", level: "Core", desc: "Session token hijacking, improper invalidation, cookie security attribute misconfiguration." },
+      { name: "Authentication & OTP Bypass", level: "Critical", desc: "Logic vulnerabilities in multi-factor workflows, rate-limit circumvention, and replay vulnerabilities." },
+      { name: "Session Management & Fixation", level: "Core", desc: "Session token hijacking, improper invalidation, and cookie security attribute misconfigurations." },
       { name: "Broken Access Control", level: "Critical", desc: "Privilege escalation from unauthenticated/standard users to administrative capabilities." },
       { name: "File Exposure & Traversal", level: "Information Disclosure", desc: "Path traversal, exposed backup archives (.bak/.sql), and sensitive environment variable leakage." }
     ]
@@ -124,7 +124,7 @@ export const EXPERTISE_CATEGORIES = [
   {
     id: "cat-d",
     number: "04",
-    category: "PROGRAMMING & TECHNOLOGIES",
+    category: "ENGINEERING & PROTOCOLS",
     tagline: "Custom tooling, script engineering, and protocol inspection",
     skills: [
       { name: "Python", level: "Scripting / Automation", desc: "Exploit PoCs, custom fuzzers, automated reconnaissance, and cryptographic hash verification." },
@@ -146,14 +146,14 @@ export const PROJECTS = [
     index: "01",
     title: "SOC Lab with Graylog SIEM",
     badge: "DEFENSIVE / SIEM / LOG ANALYSIS",
-    headline: "Centralized threat detection and real-time log correlation laboratory",
+    headline: "Centralized threat detection & real-time log correlation laboratory",
     description: "Built a home SOC lab for centralized log management, parsing, and correlation to help detect suspicious activity.",
     extendedDetails: "Designed and configured a dedicated home Security Operations Center (SOC) testbed using Graylog SIEM. Implemented custom Grok extractors for web server logs, firewall syslog feeds, and OS authentication events. Developed alerting rules to flag brute-force authentication attacks, abnormal port sweeps, and unauthorized privilege escalations.",
     technologies: ["Graylog", "SIEM", "Log Analysis", "SOC", "Linux Syslog", "Grok Parser"],
     metrics: [
-      { label: "Log Parsing", value: "Real-time" },
-      { label: "Rule Coverage", value: "Brute-force & Portscan" },
-      { label: "Architecture", value: "Isolated Lab VNet" }
+      { label: "Parsing Engine", value: "Custom Grok" },
+      { label: "Rule Coverage", value: "Brute-force & Scans" },
+      { label: "Environment", value: "Isolated Lab VNet" }
     ],
     interactiveType: "siem-terminal"
   },
@@ -167,9 +167,9 @@ export const PROJECTS = [
     extendedDetails: "Engineered a production-ready authentication microservice prioritizing defense-in-depth web security. Integrated adaptive bcrypt hashing with automated salt generation, secure HTTP-only SameSite cookie headers, token-based email activation, rate-limiting to neutralize credential stuffing, and CSRF token verification across every form submission.",
     technologies: ["Python", "Flask", "Bcrypt", "Web Security", "CSRF Defense", "Session Security"],
     metrics: [
-      { label: "Hashing Algorithm", value: "Bcrypt (Adaptive Salt)" },
-      { label: "Cookie Protection", value: "HttpOnly, SameSite, Secure" },
-      { label: "Verification", value: "Time-limited Token" }
+      { label: "Hashing Core", value: "Bcrypt (Adaptive Salt)" },
+      { label: "Cookie Flags", value: "HttpOnly, SameSite, Secure" },
+      { label: "Token Lifespan", value: "Time-limited Expire" }
     ],
     interactiveType: "auth-flow"
   },
@@ -183,9 +183,9 @@ export const PROJECTS = [
     extendedDetails: "Developed an autonomous file integrity monitoring daemon in Python. The system scans designated directory trees, hashes each file using SHA-256 to establish an unalterable baseline manifest, and continuously monitors for modifications, deletions, or new unauthorized files. Triggers instant terminal alerts whenever a hash discrepancy occurs.",
     technologies: ["Python", "SHA-256", "Cryptographic Hashing", "File Integrity Monitoring", "Security Auditing"],
     metrics: [
-      { label: "Hashing Core", value: "SHA-256 Digest" },
-      { label: "Tamper Detection", value: "Instant Bit-level" },
-      { label: "State Manifest", value: "Cryptographic JSON DB" }
+      { label: "Digest Core", value: "SHA-256 Digest" },
+      { label: "Tamper Alert", value: "Instant Bit-level" },
+      { label: "Manifest", value: "JSON Cryptographic DB" }
     ],
     interactiveType: "fim-simulator"
   },
@@ -201,7 +201,7 @@ export const PROJECTS = [
     metrics: [
       { label: "Client Stack", value: "Flutter / Dart" },
       { label: "Auth Provider", value: "Firebase Multi-provider" },
-      { label: "Security Policy", value: "Strict Firestore Rules" }
+      { label: "Authorization", value: "Strict Firestore Rules" }
     ],
     interactiveType: "mobile-mockup"
   }

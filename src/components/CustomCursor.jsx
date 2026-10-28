@@ -9,7 +9,7 @@ export default function CustomCursor() {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    // Only enable on desktop pointer devices
+    // Check pointer and reduced motion preference
     const isPointerFine = window.matchMedia('(pointer: fine)').matches;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -22,10 +22,10 @@ export default function CustomCursor() {
     if (!dot || !ring) return;
 
     // High performance quickTo setters
-    const setDotX = gsap.quickTo(dot, 'x', { duration: 0.1, ease: 'power3' });
-    const setDotY = gsap.quickTo(dot, 'y', { duration: 0.1, ease: 'power3' });
-    const setRingX = gsap.quickTo(ring, 'x', { duration: 0.35, ease: 'power2.out' });
-    const setRingY = gsap.quickTo(ring, 'y', { duration: 0.35, ease: 'power2.out' });
+    const setDotX = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3.out' });
+    const setDotY = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3.out' });
+    const setRingX = gsap.quickTo(ring, 'x', { duration: 0.28, ease: 'power2.out' });
+    const setRingY = gsap.quickTo(ring, 'y', { duration: 0.28, ease: 'power2.out' });
 
     const onMouseMove = (e) => {
       setIsVisible(true);
@@ -43,13 +43,12 @@ export default function CustomCursor() {
       setIsVisible(true);
     };
 
-    // Track interactive elements
     const handleMouseOver = (e) => {
-      const target = e.target.closest('a, button, input, textarea, [data-cursor], [role="button"], .interactive-target');
+      const target = e.target.closest('a, button, input, textarea, [data-cursor-text], [role="button"]');
       if (target) {
         setIsHovered(true);
-        const customText = target.getAttribute('data-cursor-text') || '';
-        setCursorText(customText);
+        const text = target.getAttribute('data-cursor-text') || '';
+        setCursorText(text);
       } else {
         setIsHovered(false);
         setCursorText('');
@@ -70,11 +69,15 @@ export default function CustomCursor() {
   }, []);
 
   return (
-    <div className={`fixed inset-0 pointer-events-none z-[9999] transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'} hidden md:block`}>
-      {/* Precision Center Dot */}
+    <div
+      className={`fixed inset-0 pointer-events-none z-[9999] transition-opacity duration-300 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      } hidden md:block`}
+    >
+      {/* Precision Center Reticle Dot */}
       <div
         ref={dotRef}
-        className={`fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-[#C7FF4A] transition-transform duration-150 ${
+        className={`fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-[#C5FF4A] transition-transform duration-150 ${
           isHovered ? 'scale-0' : 'scale-100'
         }`}
         style={{ willChange: 'transform' }}
@@ -85,13 +88,13 @@ export default function CustomCursor() {
         ref={ringRef}
         className={`fixed top-0 left-0 -ml-5 -mt-5 rounded-full flex items-center justify-center transition-all duration-200 border ${
           isHovered
-            ? 'w-14 h-14 -ml-7 -mt-7 bg-[#C7FF4A]/10 border-[#C7FF4A] shadow-[0_0_20px_rgba(199,255,74,0.3)]'
-            : 'w-10 h-10 border-white/20'
+            ? 'w-14 h-14 -ml-7 -mt-7 bg-[#C5FF4A]/10 border-[#C5FF4A]'
+            : 'w-10 h-10 border-[#26313B]'
         }`}
         style={{ willChange: 'transform, width, height' }}
       >
         {cursorText && (
-          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#C7FF4A] uppercase px-1">
+          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#C5FF4A] uppercase px-1">
             {cursorText}
           </span>
         )}

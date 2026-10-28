@@ -11,15 +11,14 @@ export default function Scene3D({ className = '' }) {
     // Check prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       45,
       container.clientWidth / container.clientHeight,
       0.1,
-      1000
+      100
     );
-    camera.position.z = 6.2;
+    camera.position.z = 5.2;
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -30,145 +29,100 @@ export default function Scene3D({ className = '' }) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Root group for rotation and mouse parallax
-    const mainGroup = new THREE.Group();
-    scene.add(mainGroup);
+    const group = new THREE.Group();
+    scene.add(group);
 
-    // 1. Outer Geodesic Security Shield (Wireframe Icosahedron)
-    const outerGeo = new THREE.IcosahedronGeometry(2.2, 2);
-    const outerWireframe = new THREE.WireframeGeometry(outerGeo);
-    const outerMat = new THREE.LineBasicMaterial({
-      color: 0x6C8CFF,
+    // 1. Primary Cryptographic Lattice (Icosahedron in subtle border color)
+    const geoOuter = new THREE.IcosahedronGeometry(2.1, 1);
+    const wireOuter = new THREE.WireframeGeometry(geoOuter);
+    const matOuter = new THREE.LineBasicMaterial({
+      color: 0x26313B,
       transparent: true,
-      opacity: 0.32,
-      linewidth: 1
+      opacity: 0.8
     });
-    const outerLines = new THREE.LineSegments(outerWireframe, outerMat);
-    mainGroup.add(outerLines);
+    const meshOuter = new THREE.LineSegments(wireOuter, matOuter);
+    group.add(meshOuter);
 
-    // 2. Middle Cryptographic Lattice (Electric Lime Dodecahedron)
-    const midGeo = new THREE.DodecahedronGeometry(1.5, 1);
-    const midWireframe = new THREE.WireframeGeometry(midGeo);
-    const midMat = new THREE.LineBasicMaterial({
-      color: 0xC7FF4A,
+    // 2. Inner Lime Core (Octahedron in #C5FF4A accent)
+    const geoInner = new THREE.OctahedronGeometry(1.2, 0);
+    const wireInner = new THREE.WireframeGeometry(geoInner);
+    const matInner = new THREE.LineBasicMaterial({
+      color: 0xC5FF4A,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.9,
       linewidth: 1.5
     });
-    const midLines = new THREE.LineSegments(midWireframe, midMat);
-    mainGroup.add(midLines);
+    const meshInner = new THREE.LineSegments(wireInner, matInner);
+    group.add(meshInner);
 
-    // 3. Inner Quantum Core (Faceted Octahedron)
-    const coreGeo = new THREE.OctahedronGeometry(0.8, 0);
-    const coreMat = new THREE.MeshBasicMaterial({
-      color: 0xC7FF4A,
-      wireframe: true,
+    // 3. Subtle Latitude Ring in #C5FF4A muted
+    const geoRing = new THREE.RingGeometry(2.38, 2.4, 48);
+    const matRing = new THREE.MeshBasicMaterial({
+      color: 0xC5FF4A,
+      side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.9
+      opacity: 0.25
     });
-    const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-    mainGroup.add(coreMesh);
+    const ringMesh = new THREE.Mesh(geoRing, matRing);
+    ringMesh.rotation.x = Math.PI / 2.2;
+    group.add(ringMesh);
 
-    // 4. Node Particle Network (Defense Nodes)
-    const particleCount = 180;
-    const particleCoords = new Float32Array(particleCount * 3);
-    const particleColors = new Float32Array(particleCount * 3);
-
-    const limeColor = new THREE.Color(0xC7FF4A);
-    const blueColor = new THREE.Color(0x6C8CFF);
-
-    for (let i = 0; i < particleCount; i++) {
-      // Distribute on sphere surface with random radii
-      const radius = 2.0 + Math.random() * 0.9;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos((Math.random() * 2) - 1);
-
-      particleCoords[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-      particleCoords[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      particleCoords[i * 3 + 2] = radius * Math.cos(phi);
-
-      const isLime = Math.random() > 0.4;
-      const c = isLime ? limeColor : blueColor;
-      particleColors[i * 3] = c.r;
-      particleColors[i * 3 + 1] = c.g;
-      particleColors[i * 3 + 2] = c.b;
-    }
-
-    const particlesGeo = new THREE.BufferGeometry();
-    particlesGeo.setAttribute('position', new THREE.BufferAttribute(particleCoords, 3));
-    particlesGeo.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
-
-    const particlesMat = new THREE.PointsMaterial({
-      size: 0.05,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.85
-    });
-
-    const particles = new THREE.Points(particlesGeo, particlesMat);
-    mainGroup.add(particles);
-
-    // Mouse Tracking for Parallax
+    // Controlled mouse tilt
     let mouseX = 0;
     let mouseY = 0;
-    let targetRotationX = 0;
-    let targetRotationY = 0;
+    let targetX = 0;
+    let targetY = 0;
 
     const handleMouseMove = (e) => {
       const rect = container.getBoundingClientRect();
-      const clientX = e.clientX - rect.left;
-      const clientY = e.clientY - rect.top;
-      mouseX = (clientX / container.clientWidth) * 2 - 1;
-      mouseY = -(clientY / container.clientHeight) * 2 + 1;
+      const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      const y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+      targetX = x * 0.4;
+      targetY = y * 0.4;
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    // Resize Handler
+    // Handle Resize
     const handleResize = () => {
       if (!container) return;
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-      camera.aspect = width / height;
+      camera.aspect = container.clientWidth / container.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
+      renderer.setSize(container.clientWidth, container.clientHeight);
     };
-
     window.addEventListener('resize', handleResize);
 
-    // Animation Loop
-    let animId;
-    let clock = new THREE.Clock();
+    // IntersectionObserver to pause rendering when offscreen
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(container);
+
+    let animationFrameId;
 
     const animate = () => {
-      animId = requestAnimationFrame(animate);
+      animationFrameId = requestAnimationFrame(animate);
 
-      const delta = clock.getDelta();
-      const elapsedTime = clock.getElapsedTime();
+      if (!isVisible) return;
 
       if (!prefersReducedMotion) {
-        // Slow ambient rotations
-        outerLines.rotation.y += 0.003;
-        outerLines.rotation.x += 0.001;
+        meshOuter.rotation.y += 0.002;
+        meshOuter.rotation.x += 0.001;
 
-        midLines.rotation.y -= 0.005;
-        midLines.rotation.z += 0.002;
+        meshInner.rotation.y -= 0.004;
+        meshInner.rotation.z += 0.002;
 
-        coreMesh.rotation.y += 0.008;
-        coreMesh.rotation.x -= 0.004;
+        ringMesh.rotation.z += 0.003;
 
-        particles.rotation.y += 0.0015;
+        mouseX += (targetX - mouseX) * 0.05;
+        mouseY += (targetY - mouseY) * 0.05;
 
-        // Subtle breathing scale on core
-        const scale = 1 + Math.sin(elapsedTime * 2) * 0.08;
-        coreMesh.scale.set(scale, scale, scale);
-
-        // Smooth mouse parallax lerp
-        targetRotationY = mouseX * 0.45;
-        targetRotationX = -mouseY * 0.45;
-
-        mainGroup.rotation.y += (targetRotationY - mainGroup.rotation.y) * 0.05;
-        mainGroup.rotation.x += (targetRotationX - mainGroup.rotation.x) * 0.05;
+        group.rotation.y = mouseX;
+        group.rotation.x = -mouseY;
       }
 
       renderer.render(scene, camera);
@@ -176,35 +130,30 @@ export default function Scene3D({ className = '' }) {
 
     animate();
 
-    // Cleanup
     return () => {
-      cancelAnimationFrame(animId);
+      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
 
-      if (container && renderer.domElement) {
+      geoOuter.dispose();
+      matOuter.dispose();
+      geoInner.dispose();
+      matInner.dispose();
+      geoRing.dispose();
+      matRing.dispose();
+      renderer.dispose();
+
+      if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);
       }
-
-      // Dispose Three.js objects
-      outerGeo.dispose();
-      outerWireframe.dispose();
-      outerMat.dispose();
-      midGeo.dispose();
-      midWireframe.dispose();
-      midMat.dispose();
-      coreGeo.dispose();
-      coreMat.dispose();
-      particlesGeo.dispose();
-      particlesMat.dispose();
-      renderer.dispose();
     };
   }, []);
 
   return (
     <div
       ref={mountRef}
-      className={`w-full h-full relative pointer-events-none select-none ${className}`}
+      className={`w-full h-full relative cursor-grab active:cursor-grabbing ${className}`}
       aria-hidden="true"
     />
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
-import { ShieldCheck, Terminal, Cpu } from 'lucide-react';
+import { ShieldCheck, Terminal } from 'lucide-react';
 
 export default function Preloader({ onComplete }) {
   const [progress, setProgress] = useState(0);

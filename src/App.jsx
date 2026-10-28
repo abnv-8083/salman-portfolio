@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Preloader from './components/Preloader';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,16 +13,18 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import InteractiveTerminal from './components/InteractiveTerminal';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function App() {
-  const [isPreloaderDone, setIsPreloaderDone] = useState(false);
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Track active section via IntersectionObserver
+  // Track active section for clean navigation indicators
   useEffect(() => {
     const sections = ['home', 'about', 'expertise', 'projects', 'recognition', 'experience', 'contact'];
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 180;
       for (const sectionId of [...sections].reverse()) {
         const el = document.getElementById(sectionId);
         if (el && scrollPosition >= el.offsetTop) {
@@ -35,23 +38,26 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <div className="min-h-screen bg-[#08090B] text-[#F3F3F0] font-sans selection:bg-[#C7FF4A] selection:text-[#08090B] relative overflow-x-hidden">
-      {/* Preloader */}
-      {!isPreloaderDone && (
-        <Preloader onComplete={() => setIsPreloaderDone(true)} />
-      )}
+  // Refresh ScrollTrigger after initial mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
-      {/* Custom Desktop Cursor */}
+  return (
+    <div className="min-h-screen bg-[#090B0E] text-[#F3F4F6] font-sans selection:bg-[#C5FF4A] selection:text-[#090B0E] relative overflow-x-hidden">
+      {/* Precision Desktop Cursor */}
       <CustomCursor />
 
-      {/* Fixed Navbar */}
+      {/* Sticky Navigation Header */}
       <Navbar
         onOpenTerminal={() => setIsTerminalOpen(true)}
         activeSection={activeSection}
       />
 
-      {/* Main Sections */}
+      {/* Main Experience Flow */}
       <main className="relative">
         <Hero onOpenTerminal={() => setIsTerminalOpen(true)} />
         <About />
@@ -62,10 +68,10 @@ export default function App() {
         <Contact />
       </main>
 
-      {/* Footer */}
+      {/* Editorial Footer */}
       <Footer onOpenTerminal={() => setIsTerminalOpen(true)} />
 
-      {/* Interactive Modal Terminal */}
+      {/* Interactive Terminal Modal */}
       <InteractiveTerminal
         isOpen={isTerminalOpen}
         onClose={() => setIsTerminalOpen(false)}

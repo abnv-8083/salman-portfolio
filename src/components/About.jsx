@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Award, ShieldAlert, FileCode2, Trophy, Terminal, CheckCircle2, Lock, ArrowUpRight } from 'lucide-react';
-import { PERSONAL_INFO, RECOGNITION_ITEMS } from '../data/portfolioData';
+import { Terminal } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,38 +10,20 @@ export default function About() {
   const sectionRef = useRef(null);
   const headlineRef = useRef(null);
   const bioRef = useRef(null);
-  const cardsRef = useRef(null);
-  const visualRef = useRef(null);
+  const pillarsRef = useRef(null);
+  const diagramRef = useRef(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Headline reveal
       gsap.fromTo(
         headlineRef.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 35 },
         {
           scrollTrigger: {
             trigger: headlineRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
-          },
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out'
-        }
-      );
-
-      // Bio text reveal
-      gsap.fromTo(
-        bioRef.current,
-        { opacity: 0, y: 30 },
-        {
-          scrollTrigger: {
-            trigger: bioRef.current,
             start: 'top 85%',
             toggleActions: 'play none none reverse'
           },
@@ -52,38 +34,51 @@ export default function About() {
         }
       );
 
-      // Credential cards stagger
       gsap.fromTo(
-        cardsRef.current?.children || [],
-        { opacity: 0, y: 40, scale: 0.98 },
+        bioRef.current,
+        { opacity: 0, y: 25 },
         {
           scrollTrigger: {
-            trigger: cardsRef.current,
+            trigger: bioRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        }
+      );
+
+      gsap.fromTo(
+        pillarsRef.current?.children || [],
+        { opacity: 0, y: 25 },
+        {
+          scrollTrigger: {
+            trigger: pillarsRef.current,
             start: 'top 80%',
             toggleActions: 'play none none reverse'
           },
           opacity: 1,
           y: 0,
-          scale: 1,
           stagger: 0.15,
-          duration: 0.8,
-          ease: 'power2.out'
+          duration: 0.7,
+          ease: 'power3.out'
         }
       );
 
-      // Visual blueprint entrance
       gsap.fromTo(
-        visualRef.current,
-        { opacity: 0, scale: 0.95 },
+        diagramRef.current,
+        { opacity: 0, scale: 0.98 },
         {
           scrollTrigger: {
-            trigger: visualRef.current,
+            trigger: diagramRef.current,
             start: 'top 80%',
             toggleActions: 'play none none reverse'
           },
           opacity: 1,
           scale: 1,
-          duration: 1.1,
+          duration: 0.9,
           ease: 'power3.out'
         }
       );
@@ -96,224 +91,138 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/[0.08]"
+      className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#26313B]"
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#C7FF4A] uppercase">
-          01 / ABOUT
+        <span className="text-xs font-mono tracking-[0.25em] text-[#C5FF4A] uppercase">
+          01 / PHILOSOPHY & METHODOLOGY
         </span>
-        <div className="h-[1px] w-12 bg-[#C7FF4A]/40" />
+        <div className="h-[1px] w-12 bg-[#26313B]" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-        {/* Left Column: Biography & Philosophy */}
-        <div className="lg:col-span-6 flex flex-col justify-between">
+        {/* Left Column: Editorial Headline & Biography */}
+        <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
             <h2
               ref={headlineRef}
-              className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-[#F3F3F0] leading-[1.05] mb-8"
+              className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase mb-8"
             >
               CURIOUS BY NATURE.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C7FF4A] to-[#6C8CFF]">
-                SECURITY BY PURPOSE.
-              </span>
+              <span className="text-[#C5FF4A]">SECURITY BY PURPOSE.</span>
             </h2>
 
-            <div ref={bioRef} className="space-y-6 text-[#8E93A0] text-base sm:text-lg leading-relaxed font-light">
-              <p className="text-[#F3F3F0] font-normal">
+            <div ref={bioRef} className="space-y-6 text-body-editorial font-light">
+              <p className="text-[#F3F4F6] font-normal leading-relaxed">
                 {PERSONAL_INFO.bio}
               </p>
               <p>
                 My approach bridges offensive exploration with defensive engineering. Rather than simply scanning for superficial vulnerabilities, I analyze system logic, dissect trust boundaries, and emulate real-world adversary workflows to detect high-impact architectural flaws.
               </p>
               <p>
-                Every disclosure is conducted adhering strictly to responsible disclosure guidelines, coordinating with system owners and national computer emergency response teams to ensure comprehensive patching before public disclosure.
+                Every disclosure is conducted adhering strictly to responsible disclosure guidelines, coordinating with system owners and national computer emergency response teams to ensure comprehensive remediation before any coordinated disclosure.
               </p>
             </div>
           </div>
 
-          {/* Animated Security Blueprint / Telemetry Visual */}
+          {/* Technical Telemetry Diagram */}
           <div
-            ref={visualRef}
-            className="mt-10 p-6 rounded-2xl bg-[#111318]/70 border border-white/10 backdrop-blur-md relative overflow-hidden"
+            ref={diagramRef}
+            className="mt-10 p-6 rounded-xl bg-[#141920] border border-[#26313B] relative overflow-hidden"
           >
-            <div className="flex items-center justify-between mb-4 border-b border-white/[0.08] pb-3">
-              <div className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-[#C7FF4A]" />
-                <span className="text-xs font-mono text-[#F3F3F0] tracking-wider">
-                  TELEMETRY_HUD // ARCHITECTURE_INSPECTION
-                </span>
+            <div className="flex items-center justify-between mb-4 border-b border-[#26313B] pb-3 text-xs font-mono">
+              <div className="flex items-center gap-2 text-[#F3F4F6]">
+                <Terminal className="w-3.5 h-3.5 text-[#C5FF4A]" />
+                <span>INSPECTION_CORE // ARCHITECTURE_FLOW</span>
               </div>
-              <span className="text-[10px] font-mono text-[#C7FF4A] px-2 py-0.5 rounded bg-[#C7FF4A]/10 border border-[#C7FF4A]/30">
+              <span className="text-[10px] text-[#C5FF4A] px-2 py-0.5 rounded bg-[#C5FF4A]/10 border border-[#C5FF4A]/30">
                 ACTIVE
               </span>
             </div>
 
-            {/* Blueprint SVG Graphic */}
-            <div className="relative h-44 w-full flex items-center justify-center">
-              <svg className="w-full h-full" viewBox="0 0 500 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Grid Lines */}
-                <line x1="50" y1="20" x2="450" y2="20" stroke="rgba(255,255,255,0.05)" strokeDasharray="4 4" />
-                <line x1="50" y1="80" x2="450" y2="80" stroke="rgba(255,255,255,0.08)" />
-                <line x1="50" y1="140" x2="450" y2="140" stroke="rgba(255,255,255,0.05)" strokeDasharray="4 4" />
+            {/* Clean SVG Circuit / Inspection Diagram */}
+            <div className="h-32 w-full flex items-center justify-center">
+              <svg className="w-full h-full" viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Connection lines */}
+                <line x1="40" y1="60" x2="460" y2="60" stroke="#26313B" strokeWidth="1.5" />
+                <line x1="120" y1="60" x2="220" y2="60" stroke="#C5FF4A" strokeWidth="1.5" strokeDasharray="4 4" />
+                <line x1="280" y1="60" x2="380" y2="60" stroke="#C5FF4A" strokeWidth="1.5" strokeDasharray="4 4" />
 
-                {/* Nodes */}
-                <circle cx="80" cy="80" r="14" fill="#08090B" stroke="#6C8CFF" strokeWidth="2" />
-                <circle cx="80" cy="80" r="6" fill="#6C8CFF" />
-                <text x="80" y="112" fill="#8E93A0" fontSize="9" fontFamily="monospace" textAnchor="middle">TARGET API</text>
+                {/* Node 1: Surface Discovery */}
+                <rect x="30" y="40" width="70" height="40" rx="6" fill="#090B0E" stroke="#26313B" strokeWidth="1.5" />
+                <text x="65" y="64" fill="#F3F4F6" fontSize="9" fontFamily="JetBrains Mono, monospace" textAnchor="middle">TARGET</text>
 
-                <path d="M96 80 H 210" stroke="#C7FF4A" strokeWidth="1.5" strokeDasharray="6 3" />
+                {/* Node 2: Inspection Core */}
+                <rect x="210" y="35" width="80" height="50" rx="8" fill="#141920" stroke="#C5FF4A" strokeWidth="1.5" />
+                <text x="250" y="58" fill="#C5FF4A" fontSize="9" fontFamily="JetBrains Mono, monospace" fontWeight="600" textAnchor="middle">DISSECT</text>
+                <text x="250" y="72" fill="#9299A5" fontSize="7" fontFamily="JetBrains Mono, monospace" textAnchor="middle">AUTH / LOGIC</text>
 
-                <circle cx="230" cy="80" r="20" fill="#111318" stroke="#C7FF4A" strokeWidth="2" className="animate-pulse" />
-                <circle cx="230" cy="80" r="10" fill="rgba(199,255,74,0.2)" />
-                <text x="230" y="118" fill="#C7FF4A" fontSize="9" fontFamily="monospace" textAnchor="middle">INSPECTION CORE</text>
+                {/* Node 3: Remediated Baseline */}
+                <rect x="380" y="40" width="90" height="40" rx="6" fill="#090B0E" stroke="#26313B" strokeWidth="1.5" />
+                <text x="425" y="64" fill="#F3F4F6" fontSize="9" fontFamily="JetBrains Mono, monospace" textAnchor="middle">HARDENED</text>
 
-                <path d="M252 80 H 380" stroke="#6C8CFF" strokeWidth="1.5" strokeDasharray="6 3" />
-
-                <circle cx="400" cy="80" r="14" fill="#08090B" stroke="#00E5FF" strokeWidth="2" />
-                <circle cx="400" cy="80" r="6" fill="#00E5FF" />
-                <text x="400" y="112" fill="#8E93A0" fontSize="9" fontFamily="monospace" textAnchor="middle">HARDENED SYS</text>
-
-                {/* Animated Packet */}
-                <circle cx="160" cy="80" r="3" fill="#C7FF4A">
-                  <animate attributeName="cx" values="96;210;96" dur="3s" repeatCount="indefinite" />
+                {/* Animated Packet indicator */}
+                <circle cx="170" cy="60" r="3" fill="#C5FF4A">
+                  <animate attributeName="cx" values="100;210;100" dur="2.8s" repeatCount="indefinite" />
                 </circle>
-                <circle cx="310" cy="80" r="3" fill="#6C8CFF">
-                  <animate attributeName="cx" values="250;380;250" dur="2.4s" repeatCount="indefinite" />
+                <circle cx="330" cy="60" r="3" fill="#C5FF4A">
+                  <animate attributeName="cx" values="290;380;290" dur="2.8s" repeatCount="indefinite" />
                 </circle>
               </svg>
             </div>
 
-            <div className="flex items-center justify-between text-[11px] font-mono text-[#8E93A0] pt-2 border-t border-white/[0.05]">
-              <span>ID: SALMANUL-RESEARCH-SPEC</span>
-              <span className="text-[#C7FF4A]">STATUS: NO UNMITIGATED POINTERS</span>
+            <div className="flex items-center justify-between text-[11px] font-mono text-[#9299A5] pt-2 border-t border-[#26313B]">
+              <span>VALIDATION: SYSTEMATIC RECON</span>
+              <span className="text-[#C5FF4A]">DISCLOSURE: RESPONSIBLE ONLY</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Credibility Signals & Hall of Fame Records */}
-        <div className="lg:col-span-6 flex flex-col justify-center">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#8E93A0] mb-4 flex items-center justify-between">
-            <span>VERIFIED DISCLOSURE RECORD</span>
-            <span className="text-[#C7FF4A]">AUTHENTICATED FINDINGS</span>
+        {/* Right Column: 3 Core Methodology Pillars */}
+        <div className="lg:col-span-5 flex flex-col justify-center">
+          <div className="text-xs font-mono uppercase tracking-widest text-[#9299A5] mb-6">
+            CORE PRINCIPLES
           </div>
 
-          <div ref={cardsRef} className="space-y-4">
-            {/* Card 1: WHO Hall of Fame */}
-            <div className="p-6 rounded-2xl bg-[#111318] border border-white/10 hover:border-[#C7FF4A]/50 transition-all duration-300 group relative overflow-hidden">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#C7FF4A]/10 border border-[#C7FF4A]/30 flex items-center justify-center text-[#C7FF4A]">
-                    <Award className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-lg text-[#F3F3F0] group-hover:text-white">
-                      World Health Organization (WHO)
-                    </h3>
-                    <div className="text-xs font-mono text-[#C7FF4A] tracking-wider uppercase">
-                      Inducted to Official Hall of Fame · 2024
-                    </div>
-                  </div>
-                </div>
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-white/60">
-                  IDOR FLUID
-                </span>
+          <div ref={pillarsRef} className="space-y-4">
+            <div className="p-6 rounded-xl bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/40 transition-colors">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-[#C5FF4A]">PILLAR // 01</span>
+                <span className="text-[10px] font-mono text-[#9299A5]">OFFENSIVE</span>
               </div>
-              <p className="text-sm text-[#8E93A0] leading-relaxed mb-3">
-                Recognized in the WHO Hall of Fame for responsibly discovering, validating, and reporting an Insecure Direct Object Reference (IDOR) vulnerability on critical health platforms.
+              <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-2">
+                Adversary Emulation
+              </h3>
+              <p className="text-sm text-[#9299A5] leading-relaxed font-light">
+                Testing application workflows, APIs, and business logic from the exact perspective of a dedicated adversary to uncover critical privilege escalations and IDOR flaws.
               </p>
-              <div className="flex items-center gap-2 text-xs font-mono text-white/40">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#C7FF4A]" />
-                <span>Verified by WHO Security Operations · Remediated</span>
-              </div>
             </div>
 
-            {/* Card 2: European Commission */}
-            <div className="p-6 rounded-2xl bg-[#111318] border border-white/10 hover:border-[#6C8CFF]/50 transition-all duration-300 group relative overflow-hidden">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#6C8CFF]/10 border border-[#6C8CFF]/30 flex items-center justify-center text-[#6C8CFF]">
-                    <ShieldAlert className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-lg text-[#F3F3F0] group-hover:text-white">
-                      European Commission
-                    </h3>
-                    <div className="text-xs font-mono text-[#6C8CFF] tracking-wider uppercase">
-                      Official Vulnerability Disclosure Acknowledgment · 2024
-                    </div>
-                  </div>
-                </div>
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-white/60">
-                  BACKUP EXPOSURE
-                </span>
+            <div className="p-6 rounded-xl bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/40 transition-colors">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-[#C5FF4A]">PILLAR // 02</span>
+                <span className="text-[10px] font-mono text-[#9299A5]">GOVERNANCE</span>
               </div>
-              <p className="text-sm text-[#8E93A0] leading-relaxed mb-3">
-                Acknowledged by the European Commission for identifying an exposed backup archive vulnerability containing sensitive server configurations on official commission web assets.
+              <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-2">
+                Responsible Disclosure
+              </h3>
+              <p className="text-sm text-[#9299A5] leading-relaxed font-light">
+                Strict adherence to coordinated vulnerability disclosure timelines, coordinating with international bodies and CERT teams before any public discussion.
               </p>
-              <div className="flex items-center gap-2 text-xs font-mono text-white/40">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#6C8CFF]" />
-                <span>Coordinated EU-VDP Channel · Confirmed & Patched</span>
-              </div>
             </div>
 
-            {/* Card 3: Belgium Government & CERT-In */}
-            <div className="p-6 rounded-2xl bg-[#111318] border border-white/10 hover:border-white/30 transition-all duration-300 group relative overflow-hidden">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center text-[#F3F3F0]">
-                    <Lock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-lg text-[#F3F3F0]">
-                      Belgium Gov & CERT-In
-                    </h3>
-                    <div className="text-xs font-mono text-white/70 tracking-wider uppercase">
-                      National Infrastructure Disclosure Reports · 2024–2025
-                    </div>
-                  </div>
-                </div>
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-white/60">
-                  GOV DISCLOSURE
-                </span>
+            <div className="p-6 rounded-xl bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/40 transition-colors">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-[#C5FF4A]">PILLAR // 03</span>
+                <span className="text-[10px] font-mono text-[#9299A5]">ENGINEERING</span>
               </div>
-              <p className="text-sm text-[#8E93A0] leading-relaxed mb-3">
-                Submitted coordinated vulnerability assessments to the Belgium Federal Government and CERT-In (Indian Computer Emergency Response Team) strengthening public digital infrastructure.
+              <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-2">
+                Actionable Remediation
+              </h3>
+              <p className="text-sm text-[#9299A5] leading-relaxed font-light">
+                Delivering complete reproduction steps, proof-of-concept payloads, and specific architectural fixes that enable engineering teams to eliminate root causes.
               </p>
-              <div className="flex items-center gap-2 text-xs font-mono text-white/40">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#C7FF4A]" />
-                <span>Followed ISO/IEC 29147 standard vulnerability handling</span>
-              </div>
-            </div>
-
-            {/* Card 4: Brototype Cyber Hunt Champion */}
-            <div className="p-6 rounded-2xl bg-[#111318] border border-white/10 hover:border-[#FFB020]/50 transition-all duration-300 group relative overflow-hidden">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#FFB020]/10 border border-[#FFB020]/30 flex items-center justify-center text-[#FFB020]">
-                    <Trophy className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold text-lg text-[#F3F3F0] group-hover:text-white">
-                      Brototype Cyber Hunt Challenge
-                    </h3>
-                    <div className="text-xs font-mono text-[#FFB020] tracking-wider uppercase">
-                      1st Place Champion · ₹10,000 Cash Prize Award · 2025
-                    </div>
-                  </div>
-                </div>
-                <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#FFB020]/10 border border-[#FFB020]/30 text-[#FFB020]">
-                  8 VULNS EXPLOITED
-                </span>
-              </div>
-              <p className="text-sm text-[#8E93A0] leading-relaxed mb-3">
-                Winner of the competitive Cyber Hunt penetration testing hackathon. Uncovered and documented 8 distinct vulnerabilities across web scopes within rigorous time limits.
-              </p>
-              <div className="flex items-center gap-2 text-xs font-mono text-white/40">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#FFB020]" />
-                <span>1st Place Winner Trophy & Verified ₹10,000 Award</span>
-              </div>
             </div>
           </div>
         </div>

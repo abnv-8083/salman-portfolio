@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Shield, Bug, Search, Terminal, Radio, ChevronRight, Zap, Code2, Server, KeyRound, Cpu } from 'lucide-react';
+import { Shield, Bug, Radio, Code2 } from 'lucide-react';
 import { EXPERTISE_CATEGORIES } from '../data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -9,8 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Expertise() {
   const sectionRef = useRef(null);
   const headlineRef = useRef(null);
+  const contentRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState(EXPERTISE_CATEGORIES[0].id);
-  const [selectedSkill, setSelectedSkill] = useState(EXPERTISE_CATEGORIES[0].skills[0]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -19,7 +19,7 @@ export default function Expertise() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headlineRef.current,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 35 },
         {
           scrollTrigger: {
             trigger: headlineRef.current,
@@ -28,7 +28,7 @@ export default function Expertise() {
           },
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.9,
           ease: 'power3.out'
         }
       );
@@ -41,11 +41,11 @@ export default function Expertise() {
 
   const getCategoryIcon = (id) => {
     switch (id) {
-      case 'cat-a': return <Shield className="w-5 h-5" />;
-      case 'cat-b': return <Bug className="w-5 h-5" />;
-      case 'cat-c': return <Radio className="w-5 h-5" />;
-      case 'cat-d': return <Code2 className="w-5 h-5" />;
-      default: return <Terminal className="w-5 h-5" />;
+      case 'cat-a': return <Shield className="w-4 h-4 text-[#C5FF4A]" />;
+      case 'cat-b': return <Bug className="w-4 h-4 text-[#C5FF4A]" />;
+      case 'cat-c': return <Radio className="w-4 h-4 text-[#C5FF4A]" />;
+      case 'cat-d': return <Code2 className="w-4 h-4 text-[#C5FF4A]" />;
+      default: return <Shield className="w-4 h-4 text-[#C5FF4A]" />;
     }
   };
 
@@ -53,190 +53,105 @@ export default function Expertise() {
     <section
       id="expertise"
       ref={sectionRef}
-      className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/[0.08]"
+      className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#26313B]"
     >
-      {/* Background radial accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#C7FF4A]/[0.02] rounded-full blur-[140px] pointer-events-none" />
-
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#C7FF4A] uppercase">
-          02 / EXPERTISE
+        <span className="text-xs font-mono tracking-[0.25em] text-[#C5FF4A] uppercase">
+          02 / TECHNICAL EXPERTISE
         </span>
-        <div className="h-[1px] w-12 bg-[#C7FF4A]/40" />
+        <div className="h-[1px] w-12 bg-[#26313B]" />
       </div>
 
       {/* Section Headline */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <h2
           ref={headlineRef}
-          className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-[#F3F3F0] leading-[1.05]"
+          className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05]"
         >
           UNDERSTAND THE ATTACK.<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C7FF4A] via-[#F3F3F0] to-[#6C8CFF]">
-            STRENGTHEN THE DEFENSE.
-          </span>
+          <span className="text-[#C5FF4A]">STRENGTHEN THE DEFENSE.</span>
         </h2>
 
-        <p className="max-w-md text-[#8E93A0] text-sm font-light leading-relaxed">
-          Rigorous technical methodology focused on uncovering real business risk, eliminating privilege boundaries, and building resilient security posture.
+        <p className="max-w-md text-[#9299A5] text-sm font-light leading-relaxed">
+          Rigorous offensive methodology focused on uncovering real business risk, eliminating privilege boundaries, and building resilient security posture.
         </p>
       </div>
 
-      {/* Category Tabs: Category A to D */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+      {/* Category Navigation Strip */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
         {EXPERTISE_CATEGORIES.map((cat) => {
           const isActive = cat.id === activeCategory;
           return (
             <button
               key={cat.id}
-              onClick={() => {
-                setActiveCategory(cat.id);
-                setSelectedSkill(cat.skills[0]);
-              }}
-              className={`p-5 rounded-2xl border text-left transition-all duration-300 relative overflow-hidden group ${
+              onClick={() => setActiveCategory(cat.id)}
+              className={`p-4 rounded-xl text-left transition-all duration-200 border ${
                 isActive
-                  ? 'bg-[#111318] border-[#C7FF4A] shadow-[0_0_25px_rgba(199,255,74,0.12)]'
-                  : 'bg-[#111318]/50 border-white/10 hover:border-white/20 hover:bg-[#111318]'
+                  ? 'bg-[#141920] border-[#C5FF4A] text-[#F3F4F6]'
+                  : 'bg-[#141920]/40 border-[#26313B] text-[#9299A5] hover:text-[#F3F4F6] hover:border-[#26313B]'
               }`}
-              data-cursor-text="SELECT"
+              data-cursor-text="TAB"
             >
-              <div className="flex items-center justify-between mb-3">
-                <span className={`text-xs font-mono font-bold tracking-widest ${isActive ? 'text-[#C7FF4A]' : 'text-[#8E93A0]'}`}>
-                  {cat.number}
-                </span>
-                <div className={`transition-colors ${isActive ? 'text-[#C7FF4A]' : 'text-white/30 group-hover:text-white'}`}>
-                  {getCategoryIcon(cat.id)}
-                </div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-mono text-[#C5FF4A] font-semibold">{cat.number}</span>
+                {getCategoryIcon(cat.id)}
               </div>
-
-              <div className={`font-display font-bold text-base md:text-lg uppercase tracking-tight mb-1 ${isActive ? 'text-white' : 'text-[#8E93A0] group-hover:text-white'}`}>
+              <div className="font-display font-semibold text-xs tracking-wider uppercase">
                 {cat.category}
               </div>
-
-              <div className="text-[11px] font-mono text-white/40 line-clamp-1">
-                {cat.skills.length} SPECIALIZED CAPABILITIES
-              </div>
-
-              {isActive && (
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C7FF4A]" />
-              )}
             </button>
           );
         })}
       </div>
 
-      {/* Main Grid: Interactive Skills Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Skills List */}
-        <div className="lg:col-span-7 flex flex-col gap-3">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#8E93A0] mb-2 flex items-center justify-between">
-            <span>{currentCategoryData.category} CAPABILITIES</span>
-            <span className="text-white/40">HOVER OR CLICK TO INSPECT</span>
+      {/* Structured Category Details & Editorial List */}
+      <div
+        ref={contentRef}
+        className="p-8 md:p-12 rounded-2xl bg-[#141920] border border-[#26313B]"
+      >
+        {/* Category Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 mb-8 border-b border-[#26313B] gap-4">
+          <div>
+            <div className="text-xs font-mono text-[#C5FF4A] uppercase tracking-wider mb-1">
+              CATEGORY {currentCategoryData.number}
+            </div>
+            <h3 className="font-display font-bold text-2xl md:text-3xl text-[#F3F4F6] uppercase">
+              {currentCategoryData.category}
+            </h3>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {currentCategoryData.skills.map((skill, index) => {
-              const isSelected = selectedSkill.name === skill.name;
-              return (
-                <div
-                  key={skill.name}
-                  onClick={() => setSelectedSkill(skill)}
-                  onMouseEnter={() => setSelectedSkill(skill)}
-                  className={`p-4 rounded-xl border cursor-pointer transition-all duration-200 group relative ${
-                    isSelected
-                      ? 'bg-[#111318] border-[#C7FF4A]/60 shadow-[0_0_20px_rgba(199,255,74,0.08)]'
-                      : 'bg-[#111318]/40 border-white/[0.08] hover:border-white/20 hover:bg-[#111318]'
-                  }`}
-                  data-cursor-text="INSPECT"
-                >
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <span className="font-display font-semibold text-sm text-[#F3F3F0] group-hover:text-white">
-                      {skill.name}
-                    </span>
-                    <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full shrink-0 ${
-                      isSelected
-                        ? 'bg-[#C7FF4A]/15 text-[#C7FF4A] border border-[#C7FF4A]/30'
-                        : 'bg-white/5 text-white/50 border border-white/10'
-                    }`}>
-                      {skill.level}
-                    </span>
-                  </div>
-
-                  <p className="text-xs text-[#8E93A0] font-light leading-relaxed line-clamp-2">
-                    {skill.desc}
-                  </p>
-
-                  <div className="mt-3 flex items-center justify-between pt-2 border-t border-white/[0.05] text-[10px] font-mono text-white/30">
-                    <span>VEC_{String(index + 1).padStart(2, '0')}</span>
-                    <ChevronRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'translate-x-1 text-[#C7FF4A]' : 'opacity-30'}`} />
-                  </div>
-                </div>
-              );
-            })}
+          <div className="max-w-md text-sm text-[#9299A5] font-light">
+            {currentCategoryData.tagline}
           </div>
         </div>
 
-        {/* Right Column: Skill Deep-Dive Inspector Panel */}
-        <div className="lg:col-span-5 sticky top-28">
-          <div className="p-7 rounded-2xl bg-[#111318] border border-white/10 backdrop-blur-md relative overflow-hidden shadow-2xl">
-            {/* Header Badge */}
-            <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#C7FF4A]">
-                <Cpu className="w-4 h-4" />
-                <span>SPECIFICATION INSPECTOR</span>
-              </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/50">
-                ACTIVE FOCUS
-              </span>
-            </div>
-
-            {/* Selected Skill Header */}
-            <h3 className="font-display font-bold text-2xl text-white mb-2">
-              {selectedSkill.name}
-            </h3>
-
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C7FF4A]/10 border border-[#C7FF4A]/30 text-xs font-mono text-[#C7FF4A] mb-6">
-              <Zap className="w-3.5 h-3.5" />
-              <span>CLASSIFICATION: {selectedSkill.level}</span>
-            </div>
-
-            {/* In-depth Analysis */}
-            <div className="space-y-4 mb-8">
-              <div>
-                <div className="text-[11px] font-mono uppercase tracking-wider text-white/40 mb-1">
-                  RESEARCH METHODOLOGY
-                </div>
-                <p className="text-sm text-[#8E93A0] leading-relaxed">
-                  {selectedSkill.desc}
-                </p>
+        {/* Editorial Skill Items List */}
+        <div className="divide-y divide-[#26313B]/60">
+          {currentCategoryData.skills.map((skill, index) => (
+            <div
+              key={skill.name}
+              className="py-5 first:pt-0 last:pb-0 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#090B0E]/30 transition-colors -mx-4 px-4 rounded-lg"
+            >
+              <div className="md:col-span-5 flex items-center gap-3">
+                <span className="text-xs font-mono text-[#9299A5] group-hover:text-[#C5FF4A] transition-colors">
+                  {(index + 1).toString().padStart(2, '0')}
+                </span>
+                <span className="font-display font-semibold text-base sm:text-lg text-[#F3F4F6] group-hover:text-white transition-colors">
+                  {skill.name}
+                </span>
               </div>
 
-              <div>
-                <div className="text-[11px] font-mono uppercase tracking-wider text-white/40 mb-1">
-                  DISCLOSURE & REMEDIATION
-                </div>
-                <p className="text-xs text-[#8E93A0] leading-relaxed font-mono bg-[#08090B] p-3 rounded-lg border border-white/[0.06]">
-                  {`// Validation criteria`}
-                  <br />
-                  {`1. Identify state mutation endpoints`}
-                  <br />
-                  {`2. Verify lack of token validation & session lock`}
-                  <br />
-                  {`3. Deliver PoC with CVSS severity rating`}
-                </p>
+              <div className="md:col-span-2">
+                <span className="inline-block text-[11px] font-mono px-2.5 py-0.5 rounded bg-[#090B0E] border border-[#26313B] text-[#C5FF4A]">
+                  {skill.level}
+                </span>
+              </div>
+
+              <div className="md:col-span-5 text-sm text-[#9299A5] font-light leading-relaxed">
+                {skill.desc}
               </div>
             </div>
-
-            {/* Footer metadata */}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-white/40">
-              <span>TESTING SUITE: BURP / PYTHON</span>
-              <span className="text-[#C7FF4A] flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#C7FF4A] animate-pulse" />
-                VERIFIED CAPABILITY
-              </span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
