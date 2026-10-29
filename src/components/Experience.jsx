@@ -79,7 +79,7 @@ export default function Experience() {
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
+        <span className="text-xs font-mono tracking-[0.25em] text-[#00F0FF] uppercase">
           05 / TRAJECTORY & CREDENTIALS
         </span>
         <div className="h-[1px] w-12 bg-[#2D2D2D]" />
@@ -92,7 +92,7 @@ export default function Experience() {
           className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05]"
         >
           PRACTICE. EVOLUTION.<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#BF00FF]">
             PROVEN PEDIGREE.
           </span>
         </h2>
@@ -106,7 +106,7 @@ export default function Experience() {
         {/* Left Column: Professional Experience Timeline */}
         <div className="lg:col-span-7">
           <div className="text-xs font-mono uppercase tracking-widest text-[#9E9E9E] mb-6 flex items-center gap-2">
-            <Briefcase className="w-3.5 h-3.5 text-[#2CFF05]" />
+            <Briefcase className="w-3.5 h-3.5 text-[#00F0FF]" />
             <span>PROFESSIONAL TIMELINE</span>
           </div>
 
@@ -116,17 +116,17 @@ export default function Experience() {
                 {/* Timeline node marker */}
                 <div className={`absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 ${
                   exp.current
-                    ? 'bg-[#2CFF05] border-[#000000] shadow-[0_0_12px_rgba(44,255,5,0.7)]'
+                    ? 'bg-[#00F0FF] border-[#000000] shadow-[0_0_12px_rgba(0,240,255,0.7)]'
                     : 'bg-[#0D0D0D] border-[#2D2D2D]'
                 }`} />
 
-                <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] group-hover:border-[#2CFF05]/40 transition-colors">
+                <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] group-hover:border-[#00F0FF]/40 transition-colors">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span className="text-xs font-mono text-[#2CFF05]">
+                    <span className="text-xs font-mono text-[#00F0FF]">
                       {exp.period}
                     </span>
                     {exp.current && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#2CFF05]/10 text-[#2CFF05] border border-[#2CFF05]/30">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/30">
                         ACTIVE ROLE
                       </span>
                     )}
@@ -143,7 +143,7 @@ export default function Experience() {
                   <ul className="space-y-2 text-sm text-[#9E9E9E] font-light">
                     {exp.points.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2">
-                        <span className="text-[#2CFF05] font-mono text-xs mt-1">▹</span>
+                        <span className="text-[#00F0FF] font-mono text-xs mt-1">▹</span>
                         <span>{pt}</span>
                       </li>
                     ))}
@@ -190,7 +190,7 @@ export default function Experience() {
                   <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#000000] border border-[#2D2D2D] text-[#BF00FF]">
                     {cert.badge}
                   </span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2CFF05]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#00F0FF]" />
                 </div>
 
                 <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-1">
@@ -209,7 +209,7 @@ export default function Experience() {
 
             {/* Verification Note */}
             <div className="p-4 rounded-xl bg-[#000000] border border-[#2D2D2D] text-xs font-mono text-[#9E9E9E]">
-              <span className="text-[#2CFF05] block mb-1">// CREDENTIAL INTEGRITY</span>
+              <span className="text-[#00F0FF] block mb-1">// CREDENTIAL INTEGRITY</span>
               All listed certifications and program completions are backed by original verifiable certificates.
             </div>
           </div>

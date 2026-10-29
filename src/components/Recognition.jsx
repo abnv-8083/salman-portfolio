@@ -62,7 +62,7 @@ export default function Recognition() {
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
+        <span className="text-xs font-mono tracking-[0.25em] text-[#00F0FF] uppercase">
           04 / VERIFIED RECOGNITION
         </span>
         <div className="h-[1px] w-12 bg-[#2D2D2D]" />
@@ -75,7 +75,7 @@ export default function Recognition() {
           className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05]"
         >
           DISCOVERED RESPONSIBLY.<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#BF00FF]">
             RECOGNIZED INTERNATIONALLY.
           </span>
         </h2>
@@ -94,7 +94,7 @@ export default function Recognition() {
               key={item.id}
               onClick={() => setActiveDossier(item)}
               className={`p-8 rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D] transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
-                isPurple ? 'hover:border-[#BF00FF]/60 hover:shadow-[0_0_25px_rgba(191,0,255,0.15)]' : 'hover:border-[#2CFF05]/50 hover:shadow-[0_0_25px_rgba(44,255,5,0.12)]'
+                isPurple ? 'hover:border-[#BF00FF]/60 hover:shadow-[0_0_25px_rgba(191,0,255,0.15)]' : 'hover:border-[#00F0FF]/50 hover:shadow-[0_0_25px_rgba(0,240,255,0.15)]'
               }`}
               data-cursor-text="DOSSIER"
             >

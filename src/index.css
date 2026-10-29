@@ -5,14 +5,14 @@
     --bg-primary: #000000;
     --bg-secondary: #0D0D0D;
     --bg-surface: #141414;
-    --accent-neon: #2CFF05;
+    --accent-neon: #00F0FF;
     --accent-purple: #BF00FF;
-    --accent-neon-muted: rgba(44, 255, 5, 0.12);
+    --accent-neon-muted: rgba(0, 240, 255, 0.12);
     --accent-purple-muted: rgba(191, 0, 255, 0.12);
     --text-primary: #F3F4F6;
     --text-muted: #9E9E9E;
     --border-subtle: #2D2D2D;
-    --border-neon: rgba(44, 255, 5, 0.45);
+    --border-neon: rgba(0, 240, 255, 0.45);
     --border-purple: rgba(191, 0, 255, 0.45);
   }
 
@@ -82,7 +82,7 @@
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2CFF05;
+  background: #00F0FF;
 }
 
 /* Neon Noir Grid Background */
@@ -94,7 +94,7 @@
 }
 
 .bg-dot-matrix {
-  background-image: radial-gradient(rgba(44, 255, 5, 0.18) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 240, 255, 0.18) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -115,7 +115,7 @@
 }
 
 .surface-elevated:hover {
-  border-color: rgba(44, 255, 5, 0.4);
+  border-color: rgba(0, 240, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -124,8 +124,8 @@
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .accent-border-hover:hover {
-  border-color: #2CFF05;
-  box-shadow: 0 0 25px rgba(44, 255, 5, 0.12);
+  border-color: #00F0FF;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
 }
 
 .purple-border-hover {
@@ -156,13 +156,13 @@
 
 /* Accessible outline states */
 button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 2px solid #2CFF05;
+  outline: 2px solid #00F0FF;
   outline-offset: 2px;
 }
 
 /* Selection Color */
 ::selection {
-  background: #2CFF05;
+  background: #00F0FF;
   color: #000000;
 }
 

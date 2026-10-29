@@ -52,8 +52,8 @@ export default function Navbar({ onOpenTerminal, activeSection = 'home' }) {
             data-cursor-text="ROOT"
             aria-label="Salmanul Faris Home"
           >
-            <div className="w-9 h-9 rounded-lg bg-[#0D0D0D] border border-[#2D2D2D] flex items-center justify-center font-display font-bold text-xs tracking-tight text-[#F3F4F6] group-hover:border-[#2CFF05] transition-colors relative overflow-hidden">
-              <span>S<span className="text-[#2CFF05]">F</span>.</span>
+            <div className="w-9 h-9 rounded-lg bg-[#0D0D0D] border border-[#2D2D2D] flex items-center justify-center font-display font-bold text-xs tracking-tight text-[#F3F4F6] group-hover:border-[#00F0FF] transition-colors relative overflow-hidden">
+              <span>S<span className="text-[#00F0FF]">F</span>.</span>
             </div>
 
             <div className="flex flex-col">
@@ -61,7 +61,7 @@ export default function Navbar({ onOpenTerminal, activeSection = 'home' }) {
                 {PERSONAL_INFO.name}
               </span>
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2CFF05] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
                 <span className="text-[10px] font-mono text-[#9E9E9E] tracking-widest uppercase">
                   OFFENSIVE SECURITY
                 </span>
@@ -80,7 +80,7 @@ export default function Navbar({ onOpenTerminal, activeSection = 'home' }) {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative px-4 py-1.5 text-xs font-mono tracking-wider uppercase transition-all duration-200 rounded-full ${
                     isActive
-                      ? 'text-[#000000] font-bold bg-[#2CFF05] shadow-[0_0_15px_rgba(44,255,5,0.4)]'
+                      ? 'text-[#000000] font-bold bg-[#00F0FF] shadow-[0_0_15px_rgba(0,240,255,0.4)]'
                       : 'text-[#9E9E9E] hover:text-[#F3F4F6] hover:bg-white/[0.04]'
                   }`}
                   data-cursor-text="GOTO"
@@ -107,7 +107,7 @@ export default function Navbar({ onOpenTerminal, activeSection = 'home' }) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#2CFF05] hover:bg-[#28e604] text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-[0_0_20px_rgba(44,255,5,0.25)]"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#00F0FF] hover:bg-[#00d8e6] text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-[0_0_20px_rgba(0,240,255,0.3)]"
               data-cursor-text="CONTACT"
             >
               <span>CONTACT</span>
@@ -127,7 +127,7 @@ export default function Navbar({ onOpenTerminal, activeSection = 'home' }) {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-[#0D0D0D] border border-[#2D2D2D] text-[#F3F4F6] hover:text-[#2CFF05] transition-colors"
+              className="p-2 rounded-lg bg-[#0D0D0D] border border-[#2D2D2D] text-[#F3F4F6] hover:text-[#00F0FF] transition-colors"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -148,7 +148,7 @@ export default function Navbar({ onOpenTerminal, activeSection = 'home' }) {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="py-3 px-4 rounded-xl font-display font-semibold text-xl tracking-tight text-[#F3F4F6] hover:text-[#2CFF05] hover:bg-[#0D0D0D] border border-transparent hover:border-[#2D2D2D] transition-all flex items-center justify-between"
+                className="py-3 px-4 rounded-xl font-display font-semibold text-xl tracking-tight text-[#F3F4F6] hover:text-[#00F0FF] hover:bg-[#0D0D0D] border border-transparent hover:border-[#2D2D2D] transition-all flex items-center justify-between"
               >
                 <span>{link.label}</span>
                 <span className="text-xs font-mono text-[#BF00FF]">→</span>
@@ -160,7 +160,7 @@ export default function Navbar({ onOpenTerminal, activeSection = 'home' }) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="w-full py-3.5 rounded-xl bg-[#2CFF05] text-[#000000] font-display font-bold text-center tracking-wider uppercase text-sm shadow-[0_0_20px_rgba(44,255,5,0.3)]"
+              className="w-full py-3.5 rounded-xl bg-[#00F0FF] text-[#000000] font-display font-bold text-center tracking-wider uppercase text-sm shadow-[0_0_20px_rgba(0,240,255,0.3)]"
             >
               CONTACT SALMANUL
             </a>

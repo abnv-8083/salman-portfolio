@@ -95,7 +95,7 @@ export default function About() {
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
+        <span className="text-xs font-mono tracking-[0.25em] text-[#00F0FF] uppercase">
           01 / PHILOSOPHY & METHODOLOGY
         </span>
         <div className="h-[1px] w-12 bg-[#2D2D2D]" />
@@ -110,7 +110,7 @@ export default function About() {
               className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase mb-8"
             >
               CURIOUS BY NATURE.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#BF00FF]">
                 SECURITY BY PURPOSE.
               </span>
             </h2>
@@ -135,7 +135,7 @@ export default function About() {
           >
             <div className="flex items-center justify-between mb-4 border-b border-[#2D2D2D] pb-3 text-xs font-mono">
               <div className="flex items-center gap-2 text-[#F3F4F6]">
-                <Terminal className="w-3.5 h-3.5 text-[#2CFF05]" />
+                <Terminal className="w-3.5 h-3.5 text-[#00F0FF]" />
                 <span>INSPECTION_CORE // ARCHITECTURE_FLOW</span>
               </div>
               <span className="text-[10px] text-[#BF00FF] px-2 py-0.5 rounded bg-[#BF00FF]/10 border border-[#BF00FF]/30">
@@ -148,7 +148,7 @@ export default function About() {
               <svg className="w-full h-full" viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Connection lines */}
                 <line x1="40" y1="60" x2="460" y2="60" stroke="#2D2D2D" strokeWidth="1.5" />
-                <line x1="120" y1="60" x2="220" y2="60" stroke="#2CFF05" strokeWidth="1.5" strokeDasharray="4 4" />
+                <line x1="120" y1="60" x2="220" y2="60" stroke="#00F0FF" strokeWidth="1.5" strokeDasharray="4 4" />
                 <line x1="280" y1="60" x2="380" y2="60" stroke="#BF00FF" strokeWidth="1.5" strokeDasharray="4 4" />
 
                 {/* Node 1: Surface Discovery */}
@@ -156,8 +156,8 @@ export default function About() {
                 <text x="65" y="64" fill="#F3F4F6" fontSize="9" fontFamily="JetBrains Mono, monospace" textAnchor="middle">TARGET</text>
 
                 {/* Node 2: Inspection Core */}
-                <rect x="210" y="35" width="80" height="50" rx="8" fill="#0D0D0D" stroke="#2CFF05" strokeWidth="1.5" />
-                <text x="250" y="58" fill="#2CFF05" fontSize="9" fontFamily="JetBrains Mono, monospace" fontWeight="600" textAnchor="middle">DISSECT</text>
+                <rect x="210" y="35" width="80" height="50" rx="8" fill="#0D0D0D" stroke="#00F0FF" strokeWidth="1.5" />
+                <text x="250" y="58" fill="#00F0FF" fontSize="9" fontFamily="JetBrains Mono, monospace" fontWeight="600" textAnchor="middle">DISSECT</text>
                 <text x="250" y="72" fill="#9E9E9E" fontSize="7" fontFamily="JetBrains Mono, monospace" textAnchor="middle">AUTH / LOGIC</text>
 
                 {/* Node 3: Remediated Baseline */}
@@ -165,7 +165,7 @@ export default function About() {
                 <text x="425" y="64" fill="#F3F4F6" fontSize="9" fontFamily="JetBrains Mono, monospace" textAnchor="middle">HARDENED</text>
 
                 {/* Animated Packet indicator */}
-                <circle cx="170" cy="60" r="3" fill="#2CFF05">
+                <circle cx="170" cy="60" r="3" fill="#00F0FF">
                   <animate attributeName="cx" values="100;210;100" dur="2.8s" repeatCount="indefinite" />
                 </circle>
                 <circle cx="330" cy="60" r="3" fill="#BF00FF">
@@ -176,7 +176,7 @@ export default function About() {
 
             <div className="flex items-center justify-between text-[11px] font-mono text-[#9E9E9E] pt-2 border-t border-[#2D2D2D]">
               <span>VALIDATION: SYSTEMATIC RECON</span>
-              <span className="text-[#2CFF05]">DISCLOSURE: RESPONSIBLE ONLY</span>
+              <span className="text-[#00F0FF]">DISCLOSURE: RESPONSIBLE ONLY</span>
             </div>
           </div>
         </div>
@@ -188,9 +188,9 @@ export default function About() {
           </div>
 
           <div ref={pillarsRef} className="space-y-4">
-            <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 transition-colors">
+            <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#00F0FF]/50 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-[#2CFF05]">PILLAR // 01</span>
+                <span className="text-xs font-mono text-[#00F0FF]">PILLAR // 01</span>
                 <span className="text-[10px] font-mono text-[#9E9E9E]">OFFENSIVE</span>
               </div>
               <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-2">
@@ -214,9 +214,9 @@ export default function About() {
               </p>
             </div>
 
-            <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 transition-colors">
+            <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#00F0FF]/50 transition-colors">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono text-[#2CFF05]">PILLAR // 03</span>
+                <span className="text-xs font-mono text-[#00F0FF]">PILLAR // 03</span>
                 <span className="text-[10px] font-mono text-[#9E9E9E]">ENGINEERING</span>
               </div>
               <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-2">

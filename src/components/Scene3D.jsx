@@ -43,11 +43,11 @@ export default function Scene3D({ className = '' }) {
     const meshOuter = new THREE.LineSegments(wireOuter, matOuter);
     group.add(meshOuter);
 
-    // 2. Inner Neon Core (Octahedron in vibrant Neon Green 0x2CFF05)
+    // 2. Inner Neon Core (Octahedron in vibrant Electric Cyan 0x00F0FF)
     const geoInner = new THREE.OctahedronGeometry(1.2, 0);
     const wireInner = new THREE.WireframeGeometry(geoInner);
     const matInner = new THREE.LineBasicMaterial({
-      color: 0x2CFF05,
+      color: 0x00F0FF,
       transparent: true,
       opacity: 0.95,
       linewidth: 1.5
@@ -67,10 +67,10 @@ export default function Scene3D({ className = '' }) {
     ringMesh.rotation.x = Math.PI / 2.2;
     group.add(ringMesh);
 
-    // 4. Secondary Horizontal Ring in Neon Green 0x2CFF05
+    // 4. Secondary Horizontal Ring in Electric Cyan 0x00F0FF
     const geoRing2 = new THREE.RingGeometry(1.8, 1.82, 48);
     const matRing2 = new THREE.MeshBasicMaterial({
-      color: 0x2CFF05,
+      color: 0x00F0FF,
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 0.35

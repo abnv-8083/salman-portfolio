@@ -230,7 +230,7 @@ Location: ${PERSONAL_INFO.location}`
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#2D2D2D]" />
             <div className="w-3 h-3 rounded-full bg-[#BF00FF]" />
-            <div className="w-3 h-3 rounded-full bg-[#2CFF05]" />
+            <div className="w-3 h-3 rounded-full bg-[#00F0FF]" />
             <span className="text-xs font-mono text-[#F3F4F6] ml-2 font-semibold">
               salmanul@security-shell ~ zsh
             </span>
@@ -280,7 +280,7 @@ Location: ${PERSONAL_INFO.location}`
 
         {/* Input Command Line */}
         <div className="p-3 bg-[#0D0D0D] border-t border-[#2D2D2D] flex items-center gap-2">
-          <span className="text-xs font-mono text-[#2CFF05] font-semibold shrink-0">visitor@salmanul:~$</span>
+          <span className="text-xs font-mono text-[#00F0FF] font-semibold shrink-0">visitor@salmanul:~$</span>
           <input
             ref={inputRef}
             type="text"
@@ -293,7 +293,7 @@ Location: ${PERSONAL_INFO.location}`
           />
           <button
             onClick={() => executeCommand(inputVal)}
-            className="p-1.5 rounded bg-[#000000] border border-[#2D2D2D] text-[#2CFF05] hover:border-[#2CFF05] transition-colors"
+            className="p-1.5 rounded bg-[#000000] border border-[#2D2D2D] text-[#00F0FF] hover:border-[#00F0FF] transition-colors"
             title="Execute (Enter)"
           >
             <CornerDownLeft className="w-3.5 h-3.5" />

@@ -77,7 +77,7 @@ export default function CustomCursor() {
       {/* Precision Center Reticle Dot */}
       <div
         ref={dotRef}
-        className={`fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-[#2CFF05] transition-transform duration-150 ${
+        className={`fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-[#00F0FF] transition-transform duration-150 ${
           isHovered ? 'scale-0' : 'scale-100'
         }`}
         style={{ willChange: 'transform' }}
@@ -88,13 +88,13 @@ export default function CustomCursor() {
         ref={ringRef}
         className={`fixed top-0 left-0 -ml-5 -mt-5 rounded-full flex items-center justify-center transition-all duration-200 border ${
           isHovered
-            ? 'w-14 h-14 -ml-7 -mt-7 bg-[#BF00FF]/15 border-[#2CFF05] shadow-[0_0_20px_rgba(44,255,5,0.3)]'
+            ? 'w-14 h-14 -ml-7 -mt-7 bg-[#BF00FF]/15 border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.35)]'
             : 'w-10 h-10 border-[#2D2D2D]'
         }`}
         style={{ willChange: 'transform, width, height' }}
       >
         {cursorText && (
-          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#2CFF05] uppercase px-1">
+          <span className="text-[9px] font-mono font-semibold tracking-wider text-[#00F0FF] uppercase px-1">
             {cursorText}
           </span>
         )}

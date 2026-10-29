@@ -98,8 +98,8 @@ export default function Hero({ onOpenTerminal }) {
         <div className="lg:col-span-7 flex flex-col justify-center">
           {/* Introductory Technical Tag */}
           <div ref={tagRef} className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#0D0D0D] border border-[#2D2D2D] text-[11px] font-mono text-[#2CFF05] tracking-wider uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2CFF05] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#0D0D0D] border border-[#2D2D2D] text-[11px] font-mono text-[#00F0FF] tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
               <span>{PERSONAL_INFO.status}</span>
             </span>
             <span className="text-xs font-mono text-[#9E9E9E] hidden sm:inline">
@@ -117,7 +117,7 @@ export default function Hero({ onOpenTerminal }) {
             <div className="overflow-hidden mt-1">
               <span
                 ref={headlineLine2Ref}
-                className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] via-[#2CFF05] to-[#BF00FF]"
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-[#00F0FF] to-[#BF00FF]"
               >
                 {PERSONAL_INFO.heroHeadingLine2}
               </span>
@@ -137,7 +137,7 @@ export default function Hero({ onOpenTerminal }) {
             <a
               href="#projects"
               onClick={handleScrollToProjects}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#2CFF05] hover:bg-[#28e604] text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-[0_0_25px_rgba(44,255,5,0.3)]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#00F0FF] hover:bg-[#00d8e6] text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-[0_0_25px_rgba(0,240,255,0.35)]"
               data-cursor-text="VIEW"
             >
               <span>EXPLORE PROJECTS</span>
@@ -155,7 +155,7 @@ export default function Hero({ onOpenTerminal }) {
 
             <button
               onClick={onOpenTerminal}
-              className="inline-flex items-center gap-2 px-4 py-3.5 rounded-lg bg-[#0D0D0D]/80 hover:bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 text-[#9E9E9E] hover:text-[#2CFF05] text-xs font-mono transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-3.5 rounded-lg bg-[#0D0D0D]/80 hover:bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#00F0FF]/50 text-[#9E9E9E] hover:text-[#00F0FF] text-xs font-mono transition-colors"
               title="Open Interactive Shell (`)"
               data-cursor-text="CLI"
             >
@@ -170,7 +170,7 @@ export default function Hero({ onOpenTerminal }) {
           <div className="w-full aspect-square max-h-[460px] rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D] relative overflow-hidden flex items-center justify-center p-4">
             {/* Corner HUD markers */}
             <div className="absolute top-3 left-3 text-[10px] font-mono text-[#9E9E9E] flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2CFF05]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
               <span>SF-SEC-RESEARCH</span>
             </div>
             <div className="absolute top-3 right-3 text-[10px] font-mono text-[#BF00FF]">
@@ -179,7 +179,7 @@ export default function Hero({ onOpenTerminal }) {
             <div className="absolute bottom-3 left-3 text-[10px] font-mono text-[#9E9E9E]">
               COORD: 11.2588° N, 75.7804° E
             </div>
-            <div className="absolute bottom-3 right-3 text-[10px] font-mono text-[#2CFF05]">
+            <div className="absolute bottom-3 right-3 text-[10px] font-mono text-[#00F0FF]">
               HASH: SHA256 // OK
             </div>
 
@@ -195,7 +195,7 @@ export default function Hero({ onOpenTerminal }) {
         className="relative z-10 pt-8 mt-12 border-t border-[#2D2D2D] grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs font-mono"
       >
         <div className="flex items-start gap-3">
-          <MapPin className="w-4 h-4 text-[#2CFF05] shrink-0 mt-0.5" />
+          <MapPin className="w-4 h-4 text-[#00F0FF] shrink-0 mt-0.5" />
           <div>
             <div className="text-[10px] uppercase text-[#9E9E9E] tracking-wider">LOCATION</div>
             <div className="text-[#F3F4F6] font-medium">{PERSONAL_INFO.location}</div>
@@ -211,7 +211,7 @@ export default function Hero({ onOpenTerminal }) {
         </div>
 
         <div className="flex items-start gap-3">
-          <CheckCircle2 className="w-4 h-4 text-[#2CFF05] shrink-0 mt-0.5" />
+          <CheckCircle2 className="w-4 h-4 text-[#00F0FF] shrink-0 mt-0.5" />
           <div>
             <div className="text-[10px] uppercase text-[#9E9E9E] tracking-wider">VERIFIED DISCLOSURES</div>
             <div className="text-[#F3F4F6] font-medium">WHO Hall of Fame & European Commission</div>

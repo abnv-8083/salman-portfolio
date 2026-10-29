@@ -92,7 +92,7 @@ export default function Projects() {
       <div className="pt-24 pb-10 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
+            <span className="text-xs font-mono tracking-[0.25em] text-[#00F0FF] uppercase">
               03 / FEATURED PROJECTS
             </span>
             <div className="h-[1px] w-12 bg-[#2D2D2D]" />
@@ -100,7 +100,7 @@ export default function Projects() {
 
           <h2 className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05]">
             BUILT TO DETECT.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#BF00FF]">
               DESIGNED TO PROTECT.
             </span>
           </h2>
@@ -116,7 +116,7 @@ export default function Projects() {
             <span>HORIZONTAL VIEWPORT [0{currentPanelIndex + 1} / 0{PROJECTS.length}]</span>
             <div className="w-32 h-1.5 bg-[#0D0D0D] border border-[#2D2D2D] rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-[#2CFF05] to-[#BF00FF] transition-all duration-150"
+                className="h-full bg-gradient-to-r from-[#00F0FF] to-[#BF00FF] transition-all duration-150"
                 style={{ width: `${Math.max(10, scrollProgress * 100)}%` }}
               />
             </div>
@@ -136,14 +136,14 @@ export default function Projects() {
               <div
                 key={project.id}
                 className={`w-full lg:w-[860px] xl:w-[940px] shrink-0 rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D] p-6 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
-                  isPurpleTheme ? 'hover:border-[#BF00FF]/60' : 'hover:border-[#2CFF05]/50'
+                  isPurpleTheme ? 'hover:border-[#BF00FF]/60' : 'hover:border-[#00F0FF]/50'
                 }`}
               >
                 {/* Top Meta Header */}
                 <div>
                   <div className="flex items-center justify-between pb-6 mb-6 border-b border-[#2D2D2D] text-xs font-mono">
                     <div className="flex items-center gap-3">
-                      <span className={`text-base font-bold ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`}>
+                      <span className={`text-base font-bold ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#00F0FF]'}`}>
                         {project.index}
                       </span>
                       <span className="px-2.5 py-1 rounded bg-[#000000] border border-[#2D2D2D] text-[#9E9E9E] tracking-wider text-[11px]">
@@ -164,7 +164,7 @@ export default function Projects() {
                         {project.title}
                       </h3>
 
-                      <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`}>
+                      <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#00F0FF]'}`}>
                         {project.headline}
                       </p>
 
@@ -202,8 +202,8 @@ export default function Projects() {
                         <div className="flex flex-col h-full justify-between">
                           <div>
                             <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2D2D2D] text-xs font-mono">
-                              <span className="text-[#2CFF05] flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-[#2CFF05] animate-pulse" />
+                              <span className="text-[#00F0FF] flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
                                 GRAYLOG_EVENT_STREAM
                               </span>
                               <div className="flex gap-1 text-[10px]">
@@ -212,7 +212,7 @@ export default function Projects() {
                                     key={f}
                                     onClick={() => setSiemFilter(f)}
                                     className={`px-2 py-0.5 rounded ${
-                                      siemFilter === f ? 'bg-[#2CFF05] text-[#000000] font-bold' : 'text-[#9E9E9E] hover:text-white'
+                                      siemFilter === f ? 'bg-[#00F0FF] text-[#000000] font-bold' : 'text-[#9E9E9E] hover:text-white'
                                     }`}
                                   >
                                     {f}
@@ -225,7 +225,7 @@ export default function Projects() {
                               {filteredLogs.map((log, lIdx) => (
                                 <div key={lIdx} className="p-2 rounded bg-[#0D0D0D] border border-[#2D2D2D] leading-tight">
                                   <span className="text-[#9E9E9E] mr-2">{log.time}</span>
-                                  <span className={`mr-2 font-bold ${log.level === 'CRIT' ? 'text-rose-400' : log.level === 'WARN' ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`}>
+                                  <span className={`mr-2 font-bold ${log.level === 'CRIT' ? 'text-rose-400' : log.level === 'WARN' ? 'text-[#BF00FF]' : 'text-[#00F0FF]'}`}>
                                     [{log.level}]
                                   </span>
                                   <span className="text-[#F3F4F6]">{log.msg}</span>
@@ -236,7 +236,7 @@ export default function Projects() {
 
                           <div className="pt-3 border-t border-[#2D2D2D] text-[10px] font-mono text-[#9E9E9E] flex justify-between">
                             <span>INGESTION: 1,420 EVT/SEC</span>
-                            <span className="text-[#2CFF05]">GROK: MATCHED</span>
+                            <span className="text-[#00F0FF]">GROK: MATCHED</span>
                           </div>
                         </div>
                       )}
@@ -280,7 +280,7 @@ export default function Projects() {
 
                           <div className="pt-3 border-t border-[#2D2D2D] text-[10px] text-[#9E9E9E] flex justify-between">
                             <span>COOKIE: HttpOnly; Secure; SameSite=Strict</span>
-                            <span className="text-[#2CFF05]">CSRF: VALID</span>
+                            <span className="text-[#00F0FF]">CSRF: VALID</span>
                           </div>
                         </div>
                       )}
@@ -290,7 +290,7 @@ export default function Projects() {
                         <div className="flex flex-col h-full justify-between font-mono text-xs">
                           <div>
                             <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2D2D2D]">
-                              <span className="text-[#2CFF05] flex items-center gap-1.5">
+                              <span className="text-[#00F0FF] flex items-center gap-1.5">
                                 <FileCheck className="w-3.5 h-3.5" />
                                 FILE_INTEGRITY_MONITOR
                               </span>
@@ -310,7 +310,7 @@ export default function Projects() {
 
                               <div className={`p-2.5 rounded border ${fimModified ? 'bg-rose-950/20 border-rose-500/50' : 'bg-[#0D0D0D] border-[#2D2D2D]'}`}>
                                 <div className="text-[10px] text-[#9E9E9E] mb-1">CURRENT SCANNED DIGEST</div>
-                                <div className={`text-[10px] break-all ${fimModified ? 'text-rose-400 font-bold' : 'text-[#2CFF05]'}`}>
+                                <div className={`text-[10px] break-all ${fimModified ? 'text-rose-400 font-bold' : 'text-[#00F0FF]'}`}>
                                   {fimModified ? modifiedHash : baselineHash}
                                 </div>
                               </div>
@@ -320,11 +320,11 @@ export default function Projects() {
                           <div className="pt-3 border-t border-[#2D2D2D] flex items-center justify-between">
                             <button
                               onClick={() => setFimModified(!fimModified)}
-                              className="px-3 py-1 rounded bg-[#0D0D0D] hover:bg-[#141414] border border-[#2D2D2D] text-[10px] text-[#2CFF05]"
+                              className="px-3 py-1 rounded bg-[#0D0D0D] hover:bg-[#141414] border border-[#2D2D2D] text-[10px] text-[#00F0FF]"
                             >
                               {fimModified ? 'RESET BASELINE' : 'SIMULATE FILE TAMPER'}
                             </button>
-                            <span className={`text-[10px] ${fimModified ? 'text-rose-400' : 'text-[#2CFF05]'}`}>
+                            <span className={`text-[10px] ${fimModified ? 'text-rose-400' : 'text-[#00F0FF]'}`}>
                               {fimModified ? 'STATUS: TAMPER DETECTED!' : 'STATUS: UNMODIFIED'}
                             </span>
                           </div>
@@ -345,8 +345,8 @@ export default function Projects() {
 
                             <div className="bg-[#0D0D0D] p-3 rounded border border-[#2D2D2D] text-[10px] text-[#9E9E9E] leading-relaxed">
                               <span className="text-[#BF00FF]">service</span> cloud.firestore &#123;<br />
-                              &nbsp;&nbsp;<span className="text-[#2CFF05]">match</span> /databases/&#123;database&#125;/documents &#123;<br />
-                              &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#2CFF05]">match</span> /properties/&#123;propertyId&#125; &#123;<br />
+                              &nbsp;&nbsp;<span className="text-[#00F0FF]">match</span> /databases/&#123;database&#125;/documents &#123;<br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#00F0FF]">match</span> /properties/&#123;propertyId&#125; &#123;<br />
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-white">allow read:</span> if request.auth != null;<br />
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-white">allow write:</span> if request.auth.uid == resource.data.landlordId;<br />
                               &nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
@@ -357,7 +357,7 @@ export default function Projects() {
 
                           <div className="pt-3 border-t border-[#2D2D2D] text-[10px] text-[#9E9E9E] flex justify-between">
                             <span>TENANT ISOLATION: ENFORCED</span>
-                            <span className="text-[#2CFF05]">MULTI-TENANT: OK</span>
+                            <span className="text-[#00F0FF]">MULTI-TENANT: OK</span>
                           </div>
                         </div>
                       )}
@@ -368,16 +368,16 @@ export default function Projects() {
                 {/* Bottom Card Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-[#2D2D2D] text-xs font-mono text-[#9E9E9E]">
                   <div className="flex items-center gap-2">
-                    <span className={`w-1.5 h-1.5 rounded-full ${isPurpleTheme ? 'bg-[#BF00FF]' : 'bg-[#2CFF05]'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full ${isPurpleTheme ? 'bg-[#BF00FF]' : 'bg-[#00F0FF]'}`} />
                     <span>STATUS: COMPLETE & TESTED</span>
                   </div>
 
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-1 text-[#F3F4F6] hover:text-[#2CFF05] transition-colors"
+                    className="inline-flex items-center gap-1 text-[#F3F4F6] hover:text-[#00F0FF] transition-colors"
                   >
                     <span>INQUIRE AUDIT DETAILS</span>
-                    <ArrowUpRight className={`w-3.5 h-3.5 ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`} />
+                    <ArrowUpRight className={`w-3.5 h-3.5 ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#00F0FF]'}`} />
                   </a>
                 </div>
               </div>

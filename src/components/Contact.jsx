@@ -88,7 +88,7 @@ export default function Contact() {
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
+        <span className="text-xs font-mono tracking-[0.25em] text-[#00F0FF] uppercase">
           06 / INITIATE DIALOGUE
         </span>
         <div className="h-[1px] w-12 bg-[#2D2D2D]" />
@@ -103,7 +103,7 @@ export default function Contact() {
               className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05] mb-8"
             >
               LET'S SECURE<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] to-[#BF00FF]">
                 WHAT MATTERS.
               </span>
             </h2>
@@ -120,7 +120,7 @@ export default function Contact() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  className="font-display font-semibold text-xl text-[#F3F4F6] hover:text-[#2CFF05] transition-colors truncate"
+                  className="font-display font-semibold text-xl text-[#F3F4F6] hover:text-[#00F0FF] transition-colors truncate"
                 >
                   {PERSONAL_INFO.email}
                 </a>
@@ -131,8 +131,8 @@ export default function Contact() {
                 >
                   {copiedEmail ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-[#2CFF05]" />
-                      <span className="text-[#2CFF05]">COPIED</span>
+                      <Check className="w-3.5 h-3.5 text-[#00F0FF]" />
+                      <span className="text-[#00F0FF]">COPIED</span>
                     </>
                   ) : (
                     <>
@@ -154,7 +154,7 @@ export default function Contact() {
                   href={PERSONAL_INFO.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#00F0FF]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GITHUB</span>
@@ -176,9 +176,9 @@ export default function Contact() {
                   href={PERSONAL_INFO.socials.medium}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#00F0FF]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
                 >
-                  <MediumIcon className="w-4 h-4 text-[#2CFF05]" />
+                  <MediumIcon className="w-4 h-4 text-[#00F0FF]" />
                   <span>MEDIUM</span>
                   <ArrowUpRight className="w-3 h-3 text-[#9E9E9E]" />
                 </a>
@@ -187,7 +187,7 @@ export default function Contact() {
           </div>
 
           <div className="pt-8 text-xs font-mono text-[#9E9E9E] flex items-center gap-2">
-            <MapPin className="w-3.5 h-3.5 text-[#2CFF05]" />
+            <MapPin className="w-3.5 h-3.5 text-[#00F0FF]" />
             <span>BASE OF OPERATIONS: KERALA, INDIA</span>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function Contact() {
         {/* Right Column: Encrypted Inquiry Gateway Form */}
         <div className="lg:col-span-6">
           <div className="p-8 sm:p-10 rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D]">
-            <div className="text-xs font-mono text-[#2CFF05] uppercase tracking-wider mb-2">
+            <div className="text-xs font-mono text-[#00F0FF] uppercase tracking-wider mb-2">
               DISPATCH GATEWAY
             </div>
             <h3 className="font-display font-bold text-2xl text-[#F3F4F6] mb-6">
@@ -207,7 +207,7 @@ export default function Contact() {
                 className={`p-3.5 rounded-xl mb-6 text-xs font-mono ${
                   submissionFeedback.type === 'error'
                     ? 'bg-rose-950/30 border border-rose-500/50 text-rose-300'
-                    : 'bg-[#2CFF05]/10 border border-[#2CFF05]/40 text-[#2CFF05]'
+                    : 'bg-[#00F0FF]/10 border border-[#00F0FF]/40 text-[#00F0FF]'
                 }`}
               >
                 {submissionFeedback.message}
@@ -225,7 +225,7 @@ export default function Contact() {
                   placeholder="e.g. Alex Rivera"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#2CFF05] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#00F0FF] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
                 />
               </div>
 
@@ -239,7 +239,7 @@ export default function Contact() {
                   placeholder="alex@organization.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#2CFF05] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#00F0FF] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
                 />
               </div>
 
@@ -269,14 +269,14 @@ export default function Contact() {
                   placeholder="Briefly describe your systems, objectives, or testing requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#2CFF05] text-[#F3F4F6] text-sm focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#00F0FF] text-[#F3F4F6] text-sm focus:outline-none transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 px-6 rounded-xl bg-[#2CFF05] hover:bg-[#28e604] disabled:opacity-50 text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(44,255,5,0.25)]"
+                className="w-full py-3.5 px-6 rounded-xl bg-[#00F0FF] hover:bg-[#00d8e6] disabled:opacity-50 text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(0,240,255,0.3)]"
                 data-cursor-text="SEND"
               >
                 <span>{isSubmitting ? 'DISPATCHING...' : 'DISPATCH INQUIRY'}</span>
