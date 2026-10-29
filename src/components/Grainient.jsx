@@ -246,8 +246,10 @@ const link = (gl, fragmentSource) => {
   for (let i = 0; i < count; i++) {
     const info = gl.getActiveUniform(program, i);
     if (!info) continue;
-    const name = info.name.replace(/\[0\]$/, '');
-    uniforms[name] = gl.getUniformLocation(program, name);
+    const loc = gl.getUniformLocation(program, info.name);
+    const cleanName = info.name.replace(/\[0\]$/, '');
+    uniforms[cleanName] = loc;
+    uniforms[info.name] = loc;
   }
   return { program, uniforms };
 };

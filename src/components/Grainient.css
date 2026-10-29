@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: radial-gradient(circle at 65% 35%, #24351A 0%, #141920 45%, #090B0E 100%);
 }
 
 .grainient-canvas {

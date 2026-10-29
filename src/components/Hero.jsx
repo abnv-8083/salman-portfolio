@@ -88,35 +88,49 @@ export default function Hero({ onOpenTerminal }) {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#2D2D2D] overflow-hidden"
+      className="hero relative min-h-[92vh] w-full border-b border-[#2D2D2D] overflow-hidden"
     >
-      {/* Interactive Cyber Grainient Background from React Bits */}
-      <div className="absolute inset-0 z-0 pointer-events-auto overflow-hidden opacity-90">
+      {/* Full-bleed Interactive Cyber Grainient Background from React Bits */}
+      <div className="hero-background absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <Grainient
-          colors={['#000000', '#060012', '#140029', '#3b0066', '#7b00bf', '#BF00FF', '#00F0FF']}
-          angle={55}
-          flow={0.85}
-          silk={0.25}
-          speed={0.5}
-          grainAmount={0.06}
+          colors={["#090B0E", "#141920", "#24351A", "#536B2D", "#C5FF4A"]}
+          type="linear"
+          angle={150}
+          bands={1}
+          softness={1}
+          flow={0.55}
+          scale={1.1}
+          speed={0.35}
+          silk={0.3}
+          grainAmount={0.055}
           grainSize={1.2}
           grainAnimated={true}
-          contrast={1.15}
-          saturation={1.3}
+          contrast={1.05}
+          saturation={0.8}
+          variation={0}
           interactive={true}
-          stir={1.3}
-          clickSwirl={true}
+          stir={0.6}
+          clickSwirl={false}
+          intro={true}
+        />
+        {/* Cinematic Readability & Editorial Overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `
+              linear-gradient(90deg, rgba(9, 11, 14, 0.72) 0%, rgba(9, 11, 14, 0.28) 55%, rgba(9, 11, 14, 0.5) 100%),
+              linear-gradient(180deg, rgba(9, 11, 14, 0.12) 0%, transparent 65%, #090B0E 100%)
+            `
+          }}
         />
       </div>
 
-      {/* Subtle Overlay Vignette & Technical Grid */}
-      <div className="absolute inset-0 bg-editorial-grid opacity-20 pointer-events-none z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/65 pointer-events-none z-[1]" />
-
-      {/* Main Hero Grid */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center my-auto">
-        {/* Left Column: Editorial Typography & Actions */}
-        <div className="lg:col-span-7 flex flex-col justify-center">
+      {/* Centered Content Container */}
+      <div className="hero-content relative z-10 flex flex-col justify-between min-h-[92vh] pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto pointer-events-auto">
+        {/* Main Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center my-auto">
+          {/* Left Column: Editorial Typography & Actions */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
           {/* Introductory Technical Tag */}
           <div ref={tagRef} className="flex flex-wrap items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#0D0D0D] border border-[#2D2D2D] text-[11px] font-mono text-[#00F0FF] tracking-wider uppercase">
@@ -238,6 +252,7 @@ export default function Hero({ onOpenTerminal }) {
             <div className="text-[#F3F4F6] font-medium">WHO Hall of Fame & European Commission</div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
