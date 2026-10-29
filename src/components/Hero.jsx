@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ArrowUpRight, Terminal, MapPin, Shield, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import Scene3D from './Scene3D';
+import Grainient from './Grainient';
 
 export default function Hero({ onOpenTerminal }) {
   const heroRef = useRef(null);
@@ -87,10 +88,30 @@ export default function Hero({ onOpenTerminal }) {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#2D2D2D]"
+      className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#2D2D2D] overflow-hidden"
     >
-      {/* Background Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-editorial-grid opacity-35 pointer-events-none" />
+      {/* Interactive Cyber Grainient Background from React Bits */}
+      <div className="absolute inset-0 z-0 pointer-events-auto overflow-hidden opacity-90">
+        <Grainient
+          colors={['#000000', '#060012', '#140029', '#3b0066', '#7b00bf', '#BF00FF', '#00F0FF']}
+          angle={55}
+          flow={0.85}
+          silk={0.25}
+          speed={0.5}
+          grainAmount={0.06}
+          grainSize={1.2}
+          grainAnimated={true}
+          contrast={1.15}
+          saturation={1.3}
+          interactive={true}
+          stir={1.3}
+          clickSwirl={true}
+        />
+      </div>
+
+      {/* Subtle Overlay Vignette & Technical Grid */}
+      <div className="absolute inset-0 bg-editorial-grid opacity-20 pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/65 pointer-events-none z-[1]" />
 
       {/* Main Hero Grid */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center my-auto">
