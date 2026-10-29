@@ -47,7 +47,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#090B0E] text-[#F3F4F6] font-sans selection:bg-[#C5FF4A] selection:text-[#090B0E] relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#000000] text-[#F3F4F6] font-sans selection:bg-[#2CFF05] selection:text-[#000000] relative overflow-x-hidden">
       {/* Precision Desktop Cursor */}
       <CustomCursor />
 

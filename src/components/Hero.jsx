@@ -87,10 +87,10 @@ export default function Hero({ onOpenTerminal }) {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#26313B]"
+      className="relative min-h-[92vh] flex flex-col justify-between pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#2D2D2D]"
     >
       {/* Background Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-editorial-grid opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 bg-editorial-grid opacity-35 pointer-events-none" />
 
       {/* Main Hero Grid */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center my-auto">
@@ -98,16 +98,16 @@ export default function Hero({ onOpenTerminal }) {
         <div className="lg:col-span-7 flex flex-col justify-center">
           {/* Introductory Technical Tag */}
           <div ref={tagRef} className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#141920] border border-[#26313B] text-[11px] font-mono text-[#C5FF4A] tracking-wider uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C5FF4A] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#0D0D0D] border border-[#2D2D2D] text-[11px] font-mono text-[#2CFF05] tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2CFF05] animate-pulse" />
               <span>{PERSONAL_INFO.status}</span>
             </span>
-            <span className="text-xs font-mono text-[#9299A5] hidden sm:inline">
+            <span className="text-xs font-mono text-[#9E9E9E] hidden sm:inline">
               // MALABAR · KERALA
             </span>
           </div>
 
-          {/* Oversized Headline */}
+          {/* Oversized Headline with Neon Noir Gradient Accent */}
           <h1 className="font-display font-bold text-hero-headline text-[#F3F4F6] uppercase mb-8">
             <div className="overflow-hidden">
               <span ref={headlineLine1Ref} className="block">
@@ -115,7 +115,10 @@ export default function Hero({ onOpenTerminal }) {
               </span>
             </div>
             <div className="overflow-hidden mt-1">
-              <span ref={headlineLine2Ref} className="block text-[#C5FF4A]">
+              <span
+                ref={headlineLine2Ref}
+                className="block text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] via-[#2CFF05] to-[#BF00FF]"
+              >
                 {PERSONAL_INFO.heroHeadingLine2}
               </span>
             </div>
@@ -124,7 +127,7 @@ export default function Hero({ onOpenTerminal }) {
           {/* Supporting Bio */}
           <p
             ref={bioRef}
-            className="text-body-editorial max-w-2xl font-light mb-10"
+            className="text-body-editorial max-w-2xl font-light mb-10 text-[#9E9E9E]"
           >
             {PERSONAL_INFO.heroBio}
           </p>
@@ -134,7 +137,7 @@ export default function Hero({ onOpenTerminal }) {
             <a
               href="#projects"
               onClick={handleScrollToProjects}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#C5FF4A] hover:bg-[#b8f53a] text-[#090B0E] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-[0_0_25px_rgba(197,255,74,0.18)]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#2CFF05] hover:bg-[#28e604] text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 active:scale-95 shadow-[0_0_25px_rgba(44,255,5,0.3)]"
               data-cursor-text="VIEW"
             >
               <span>EXPLORE PROJECTS</span>
@@ -144,7 +147,7 @@ export default function Hero({ onOpenTerminal }) {
             <a
               href="#contact"
               onClick={handleScrollToContact}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#141920] hover:bg-[#141920]/80 border border-[#26313B] hover:border-[#C5FF4A]/50 text-[#F3F4F6] font-display font-medium text-xs tracking-wider uppercase transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#0D0D0D] hover:bg-[#141414] border border-[#2D2D2D] hover:border-[#BF00FF]/60 text-[#F3F4F6] font-display font-medium text-xs tracking-wider uppercase transition-all duration-200"
               data-cursor-text="CONTACT"
             >
               <span>GET IN TOUCH</span>
@@ -152,11 +155,11 @@ export default function Hero({ onOpenTerminal }) {
 
             <button
               onClick={onOpenTerminal}
-              className="inline-flex items-center gap-2 px-4 py-3.5 rounded-lg bg-[#141920]/80 hover:bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/50 text-[#9299A5] hover:text-[#C5FF4A] text-xs font-mono transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-3.5 rounded-lg bg-[#0D0D0D]/80 hover:bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 text-[#9E9E9E] hover:text-[#2CFF05] text-xs font-mono transition-colors"
               title="Open Interactive Shell (`)"
               data-cursor-text="CLI"
             >
-              <Terminal className="w-4 h-4 text-[#C5FF4A]" />
+              <Terminal className="w-4 h-4 text-[#BF00FF]" />
               <span className="hidden sm:inline">LAUNCH CLI</span>
             </button>
           </div>
@@ -164,19 +167,19 @@ export default function Hero({ onOpenTerminal }) {
 
         {/* Right Column: Visual Mesh & Technical Telemetry */}
         <div ref={visualRef} className="lg:col-span-5 relative w-full flex items-center justify-center">
-          <div className="w-full aspect-square max-h-[460px] rounded-2xl bg-[#141920] border border-[#26313B] relative overflow-hidden flex items-center justify-center p-4">
+          <div className="w-full aspect-square max-h-[460px] rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D] relative overflow-hidden flex items-center justify-center p-4">
             {/* Corner HUD markers */}
-            <div className="absolute top-3 left-3 text-[10px] font-mono text-[#9299A5] flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C5FF4A]" />
+            <div className="absolute top-3 left-3 text-[10px] font-mono text-[#9E9E9E] flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2CFF05]" />
               <span>SF-SEC-RESEARCH</span>
             </div>
-            <div className="absolute top-3 right-3 text-[10px] font-mono text-[#9299A5]">
+            <div className="absolute top-3 right-3 text-[10px] font-mono text-[#BF00FF]">
               NODE: ACTIVE
             </div>
-            <div className="absolute bottom-3 left-3 text-[10px] font-mono text-[#9299A5]">
+            <div className="absolute bottom-3 left-3 text-[10px] font-mono text-[#9E9E9E]">
               COORD: 11.2588° N, 75.7804° E
             </div>
-            <div className="absolute bottom-3 right-3 text-[10px] font-mono text-[#C5FF4A]">
+            <div className="absolute bottom-3 right-3 text-[10px] font-mono text-[#2CFF05]">
               HASH: SHA256 // OK
             </div>
 
@@ -189,28 +192,28 @@ export default function Hero({ onOpenTerminal }) {
       {/* Hero Bottom Metadata Row */}
       <div
         ref={metaRef}
-        className="relative z-10 pt-8 mt-12 border-t border-[#26313B] grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs font-mono"
+        className="relative z-10 pt-8 mt-12 border-t border-[#2D2D2D] grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs font-mono"
       >
         <div className="flex items-start gap-3">
-          <MapPin className="w-4 h-4 text-[#C5FF4A] shrink-0 mt-0.5" />
+          <MapPin className="w-4 h-4 text-[#2CFF05] shrink-0 mt-0.5" />
           <div>
-            <div className="text-[10px] uppercase text-[#9299A5] tracking-wider">LOCATION</div>
+            <div className="text-[10px] uppercase text-[#9E9E9E] tracking-wider">LOCATION</div>
             <div className="text-[#F3F4F6] font-medium">{PERSONAL_INFO.location}</div>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <Shield className="w-4 h-4 text-[#C5FF4A] shrink-0 mt-0.5" />
+          <Shield className="w-4 h-4 text-[#BF00FF] shrink-0 mt-0.5" />
           <div>
-            <div className="text-[10px] uppercase text-[#9299A5] tracking-wider">PRIMARY DISCIPLINE</div>
+            <div className="text-[10px] uppercase text-[#9E9E9E] tracking-wider">PRIMARY DISCIPLINE</div>
             <div className="text-[#F3F4F6] font-medium">Web App Pentesting & Vulnerability Research</div>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <CheckCircle2 className="w-4 h-4 text-[#C5FF4A] shrink-0 mt-0.5" />
+          <CheckCircle2 className="w-4 h-4 text-[#2CFF05] shrink-0 mt-0.5" />
           <div>
-            <div className="text-[10px] uppercase text-[#9299A5] tracking-wider">VERIFIED DISCLOSURES</div>
+            <div className="text-[10px] uppercase text-[#9E9E9E] tracking-wider">VERIFIED DISCLOSURES</div>
             <div className="text-[#F3F4F6] font-medium">WHO Hall of Fame & European Commission</div>
           </div>
         </div>

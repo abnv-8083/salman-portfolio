@@ -216,21 +216,21 @@ Location: ${PERSONAL_INFO.location}`
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-[#090B0E]/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[100] bg-[#000000]/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
       onClick={onClose}
     >
       <div
-        className={`bg-[#090B0E] border border-[#26313B] rounded-2xl flex flex-col overflow-hidden shadow-2xl transition-all duration-300 ${
+        className={`bg-[#000000] border border-[#2D2D2D] rounded-2xl flex flex-col overflow-hidden shadow-2xl transition-all duration-300 ${
           isMaximized ? 'w-full h-full rounded-none' : 'w-full max-w-3xl h-[560px]'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Terminal Title Bar */}
-        <div className="bg-[#141920] px-4 py-3 border-b border-[#26313B] flex items-center justify-between select-none">
+        <div className="bg-[#0D0D0D] px-4 py-3 border-b border-[#2D2D2D] flex items-center justify-between select-none">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#26313B]" />
-            <div className="w-3 h-3 rounded-full bg-[#26313B]" />
-            <div className="w-3 h-3 rounded-full bg-[#C5FF4A]" />
+            <div className="w-3 h-3 rounded-full bg-[#2D2D2D]" />
+            <div className="w-3 h-3 rounded-full bg-[#BF00FF]" />
+            <div className="w-3 h-3 rounded-full bg-[#2CFF05]" />
             <span className="text-xs font-mono text-[#F3F4F6] ml-2 font-semibold">
               salmanul@security-shell ~ zsh
             </span>
@@ -239,14 +239,14 @@ Location: ${PERSONAL_INFO.location}`
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsMaximized(!isMaximized)}
-              className="p-1 rounded text-[#9299A5] hover:text-[#F3F4F6] transition-colors"
+              className="p-1 rounded text-[#9E9E9E] hover:text-[#F3F4F6] transition-colors"
               title={isMaximized ? 'Restore' : 'Maximize'}
             >
               {isMaximized ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
             </button>
             <button
               onClick={onClose}
-              className="p-1 rounded text-[#9299A5] hover:text-white transition-colors"
+              className="p-1 rounded text-[#9E9E9E] hover:text-white transition-colors"
               title="Close (` or Esc)"
             >
               <X className="w-4 h-4" />
@@ -265,10 +265,10 @@ Location: ${PERSONAL_INFO.location}`
                 <div className="text-[#F3F4F6] font-semibold">{entry.text}</div>
               )}
               {entry.type === 'system' && (
-                <div className="text-[#C5FF4A]">{entry.text}</div>
+                <div className="text-[#BF00FF]">{entry.text}</div>
               )}
               {entry.type === 'output' && (
-                <div className="text-[#9299A5]">{entry.text}</div>
+                <div className="text-[#9E9E9E]">{entry.text}</div>
               )}
               {entry.type === 'error' && (
                 <div className="text-rose-400">{entry.text}</div>
@@ -279,8 +279,8 @@ Location: ${PERSONAL_INFO.location}`
         </div>
 
         {/* Input Command Line */}
-        <div className="p-3 bg-[#141920] border-t border-[#26313B] flex items-center gap-2">
-          <span className="text-xs font-mono text-[#C5FF4A] shrink-0">visitor@salmanul:~$</span>
+        <div className="p-3 bg-[#0D0D0D] border-t border-[#2D2D2D] flex items-center gap-2">
+          <span className="text-xs font-mono text-[#2CFF05] font-semibold shrink-0">visitor@salmanul:~$</span>
           <input
             ref={inputRef}
             type="text"
@@ -288,12 +288,12 @@ Location: ${PERSONAL_INFO.location}`
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Type 'help' or command..."
-            className="flex-1 bg-transparent border-none outline-none text-xs font-mono text-[#F3F4F6] placeholder-[#9299A5]/50"
+            className="flex-1 bg-transparent border-none outline-none text-xs font-mono text-[#F3F4F6] placeholder-[#9E9E9E]/40"
             autoFocus
           />
           <button
             onClick={() => executeCommand(inputVal)}
-            className="p-1.5 rounded bg-[#090B0E] border border-[#26313B] text-[#C5FF4A] hover:bg-[#26313B] transition-colors"
+            className="p-1.5 rounded bg-[#000000] border border-[#2D2D2D] text-[#2CFF05] hover:border-[#2CFF05] transition-colors"
             title="Execute (Enter)"
           >
             <CornerDownLeft className="w-3.5 h-3.5" />

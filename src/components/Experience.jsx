@@ -75,14 +75,14 @@ export default function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#26313B]"
+      className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto border-b border-[#2D2D2D]"
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#C5FF4A] uppercase">
+        <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
           05 / TRAJECTORY & CREDENTIALS
         </span>
-        <div className="h-[1px] w-12 bg-[#26313B]" />
+        <div className="h-[1px] w-12 bg-[#2D2D2D]" />
       </div>
 
       {/* Section Headline */}
@@ -92,10 +92,12 @@ export default function Experience() {
           className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05]"
         >
           PRACTICE. EVOLUTION.<br />
-          <span className="text-[#C5FF4A]">PROVEN PEDIGREE.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+            PROVEN PEDIGREE.
+          </span>
         </h2>
 
-        <p className="max-w-md text-sm text-[#9299A5] font-light leading-relaxed">
+        <p className="max-w-md text-sm text-[#9E9E9E] font-light leading-relaxed">
           Structured professional journey across offensive penetration testing, defensive network inspection, and software engineering.
         </p>
       </div>
@@ -103,26 +105,28 @@ export default function Experience() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         {/* Left Column: Professional Experience Timeline */}
         <div className="lg:col-span-7">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#9299A5] mb-6 flex items-center gap-2">
-            <Briefcase className="w-3.5 h-3.5 text-[#C5FF4A]" />
+          <div className="text-xs font-mono uppercase tracking-widest text-[#9E9E9E] mb-6 flex items-center gap-2">
+            <Briefcase className="w-3.5 h-3.5 text-[#2CFF05]" />
             <span>PROFESSIONAL TIMELINE</span>
           </div>
 
-          <div ref={timelineRef} className="space-y-8 relative pl-6 border-l border-[#26313B]">
+          <div ref={timelineRef} className="space-y-8 relative pl-6 border-l border-[#2D2D2D]">
             {TIMELINE_EXPERIENCE.map((exp, idx) => (
               <div key={idx} className="relative group">
                 {/* Timeline node marker */}
                 <div className={`absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 ${
-                  exp.current ? 'bg-[#C5FF4A] border-[#090B0E]' : 'bg-[#141920] border-[#26313B]'
+                  exp.current
+                    ? 'bg-[#2CFF05] border-[#000000] shadow-[0_0_12px_rgba(44,255,5,0.7)]'
+                    : 'bg-[#0D0D0D] border-[#2D2D2D]'
                 }`} />
 
-                <div className="p-6 rounded-xl bg-[#141920] border border-[#26313B] group-hover:border-[#C5FF4A]/40 transition-colors">
+                <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] group-hover:border-[#2CFF05]/40 transition-colors">
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span className="text-xs font-mono text-[#C5FF4A]">
+                    <span className="text-xs font-mono text-[#2CFF05]">
                       {exp.period}
                     </span>
                     {exp.current && (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#C5FF4A]/10 text-[#C5FF4A] border border-[#C5FF4A]/30">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#2CFF05]/10 text-[#2CFF05] border border-[#2CFF05]/30">
                         ACTIVE ROLE
                       </span>
                     )}
@@ -132,14 +136,14 @@ export default function Experience() {
                     {exp.role}
                   </h3>
 
-                  <div className="text-xs font-mono text-[#9299A5] uppercase tracking-wider mb-4">
+                  <div className="text-xs font-mono text-[#9E9E9E] uppercase tracking-wider mb-4">
                     {exp.organization}
                   </div>
 
-                  <ul className="space-y-2 text-sm text-[#9299A5] font-light">
+                  <ul className="space-y-2 text-sm text-[#9E9E9E] font-light">
                     {exp.points.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2">
-                        <span className="text-[#C5FF4A] font-mono text-xs mt-1">▹</span>
+                        <span className="text-[#2CFF05] font-mono text-xs mt-1">▹</span>
                         <span>{pt}</span>
                       </li>
                     ))}
@@ -151,16 +155,16 @@ export default function Experience() {
             {/* Education entry */}
             {EDUCATION.map((edu, idx) => (
               <div key={idx} className="relative group">
-                <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#141920] border-2 border-[#26313B]" />
+                <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#0D0D0D] border-2 border-[#2D2D2D]" />
 
-                <div className="p-6 rounded-xl bg-[#141920] border border-[#26313B]">
-                  <span className="text-xs font-mono text-[#9299A5] block mb-2">
+                <div className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D]">
+                  <span className="text-xs font-mono text-[#9E9E9E] block mb-2">
                     {edu.period}
                   </span>
                   <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-1">
                     {edu.degree}
                   </h3>
-                  <div className="text-xs font-mono text-[#9299A5] uppercase">
+                  <div className="text-xs font-mono text-[#9E9E9E] uppercase">
                     {edu.institution}
                   </div>
                 </div>
@@ -171,8 +175,8 @@ export default function Experience() {
 
         {/* Right Column: Verified Certifications */}
         <div className="lg:col-span-5">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#9299A5] mb-6 flex items-center gap-2">
-            <Award className="w-3.5 h-3.5 text-[#C5FF4A]" />
+          <div className="text-xs font-mono uppercase tracking-widest text-[#9E9E9E] mb-6 flex items-center gap-2">
+            <Award className="w-3.5 h-3.5 text-[#BF00FF]" />
             <span>TECHNICAL CERTIFICATIONS</span>
           </div>
 
@@ -180,32 +184,32 @@ export default function Experience() {
             {CERTIFICATIONS.map((cert, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/40 transition-colors"
+                className="p-6 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#BF00FF]/50 hover:shadow-[0_0_20px_rgba(191,0,255,0.12)] transition-colors"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#090B0E] border border-[#26313B] text-[#C5FF4A]">
+                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-[#000000] border border-[#2D2D2D] text-[#BF00FF]">
                     {cert.badge}
                   </span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#C5FF4A]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2CFF05]" />
                 </div>
 
                 <h3 className="font-display font-bold text-lg text-[#F3F4F6] mb-1">
                   {cert.name}
                 </h3>
 
-                <div className="text-xs font-mono text-[#9299A5] uppercase mb-3">
+                <div className="text-xs font-mono text-[#9E9E9E] uppercase mb-3">
                   ISSUED BY: {cert.issuer}
                 </div>
 
-                <p className="text-xs text-[#9299A5] leading-relaxed font-light">
+                <p className="text-xs text-[#9E9E9E] leading-relaxed font-light">
                   {cert.description}
                 </p>
               </div>
             ))}
 
             {/* Verification Note */}
-            <div className="p-4 rounded-xl bg-[#090B0E] border border-[#26313B] text-xs font-mono text-[#9299A5]">
-              <span className="text-[#C5FF4A] block mb-1">// CREDENTIAL INTEGRITY</span>
+            <div className="p-4 rounded-xl bg-[#000000] border border-[#2D2D2D] text-xs font-mono text-[#9E9E9E]">
+              <span className="text-[#2CFF05] block mb-1">// CREDENTIAL INTEGRITY</span>
               All listed certifications and program completions are backed by original verifiable certificates.
             </div>
           </div>

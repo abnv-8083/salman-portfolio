@@ -86,35 +86,37 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative w-full bg-[#090B0E] border-b border-[#26313B] overflow-hidden"
+      className="relative w-full bg-[#000000] border-b border-[#2D2D2D] overflow-hidden"
     >
       {/* Top Header Information Bar */}
       <div className="pt-24 pb-10 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-mono tracking-[0.25em] text-[#C5FF4A] uppercase">
+            <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
               03 / FEATURED PROJECTS
             </span>
-            <div className="h-[1px] w-12 bg-[#26313B]" />
+            <div className="h-[1px] w-12 bg-[#2D2D2D]" />
           </div>
 
           <h2 className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05]">
             BUILT TO DETECT.<br />
-            <span className="text-[#C5FF4A]">DESIGNED TO PROTECT.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+              DESIGNED TO PROTECT.
+            </span>
           </h2>
         </div>
 
         <div className="flex flex-col items-start md:items-end gap-3">
-          <p className="max-w-md text-sm text-[#9299A5] font-light leading-relaxed md:text-right">
+          <p className="max-w-md text-sm text-[#9E9E9E] font-light leading-relaxed md:text-right">
             Applied offensive engineering, cryptographic baseline tools, and log correlation systems.
           </p>
 
           {/* Desktop Horizontal Scroll Indicator */}
-          <div className="hidden lg:flex items-center gap-4 text-xs font-mono text-[#9299A5]">
+          <div className="hidden lg:flex items-center gap-4 text-xs font-mono text-[#9E9E9E]">
             <span>HORIZONTAL VIEWPORT [0{currentPanelIndex + 1} / 0{PROJECTS.length}]</span>
-            <div className="w-32 h-1.5 bg-[#141920] border border-[#26313B] rounded-full overflow-hidden">
+            <div className="w-32 h-1.5 bg-[#0D0D0D] border border-[#2D2D2D] rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#C5FF4A] transition-all duration-150"
+                className="h-full bg-gradient-to-r from-[#2CFF05] to-[#BF00FF] transition-all duration-150"
                 style={{ width: `${Math.max(10, scrollProgress * 100)}%` }}
               />
             </div>
@@ -128,254 +130,259 @@ export default function Projects() {
           ref={trackRef}
           className="flex flex-col lg:flex-row gap-8 lg:gap-10 w-full lg:w-max items-stretch"
         >
-          {PROJECTS.map((project) => (
-            <div
-              key={project.id}
-              className="w-full lg:w-[860px] xl:w-[940px] shrink-0 rounded-2xl bg-[#141920] border border-[#26313B] p-6 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:border-[#C5FF4A]/40"
-            >
-              {/* Top Meta Header */}
-              <div>
-                <div className="flex items-center justify-between pb-6 mb-6 border-b border-[#26313B] text-xs font-mono">
-                  <div className="flex items-center gap-3">
-                    <span className="text-base font-bold text-[#C5FF4A]">
-                      {project.index}
-                    </span>
-                    <span className="px-2.5 py-1 rounded bg-[#090B0E] border border-[#26313B] text-[#9299A5] tracking-wider text-[11px]">
-                      {project.badge}
-                    </span>
-                  </div>
-
-                  <div className="text-[11px] text-[#9299A5] hidden sm:block">
-                    RESEARCH FILE: SF-{project.id.toUpperCase()}
-                  </div>
-                </div>
-
-                {/* Main Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
-                  {/* Left Column: Typography & Description */}
-                  <div className="lg:col-span-6 flex flex-col">
-                    <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#F3F4F6] mb-3 leading-tight">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-xs font-mono text-[#C5FF4A] uppercase tracking-wider mb-4">
-                      {project.headline}
-                    </p>
-
-                    <p className="text-sm text-[#9299A5] font-light leading-relaxed mb-6">
-                      {project.extendedDetails}
-                    </p>
-
-                    {/* Key Technical Metrics */}
-                    <div className="grid grid-cols-3 gap-2 py-4 border-y border-[#26313B] text-xs font-mono mb-6">
-                      {project.metrics.map((m, mIdx) => (
-                        <div key={mIdx}>
-                          <div className="text-[10px] text-[#9299A5] uppercase">{m.label}</div>
-                          <div className="text-[#F3F4F6] font-medium truncate">{m.value}</div>
-                        </div>
-                      ))}
+          {PROJECTS.map((project, idx) => {
+            const isPurpleTheme = idx % 2 === 1;
+            return (
+              <div
+                key={project.id}
+                className={`w-full lg:w-[860px] xl:w-[940px] shrink-0 rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D] p-6 sm:p-8 md:p-10 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${
+                  isPurpleTheme ? 'hover:border-[#BF00FF]/60' : 'hover:border-[#2CFF05]/50'
+                }`}
+              >
+                {/* Top Meta Header */}
+                <div>
+                  <div className="flex items-center justify-between pb-6 mb-6 border-b border-[#2D2D2D] text-xs font-mono">
+                    <div className="flex items-center gap-3">
+                      <span className={`text-base font-bold ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`}>
+                        {project.index}
+                      </span>
+                      <span className="px-2.5 py-1 rounded bg-[#000000] border border-[#2D2D2D] text-[#9E9E9E] tracking-wider text-[11px]">
+                        {project.badge}
+                      </span>
                     </div>
 
-                    {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2.5 py-1 rounded-md bg-[#090B0E] border border-[#26313B] text-[11px] font-mono text-[#F3F4F6]"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    <div className="text-[11px] text-[#9E9E9E] hidden sm:block">
+                      RESEARCH FILE: SF-{project.id.toUpperCase()}
                     </div>
                   </div>
 
-                  {/* Right Column: Interactive Project Simulator */}
-                  <div className="lg:col-span-6 bg-[#090B0E] rounded-xl border border-[#26313B] p-5 flex flex-col justify-between min-h-[340px]">
-                    {/* Project 1: SIEM Stream Simulator */}
-                    {project.interactiveType === 'siem-terminal' && (
-                      <div className="flex flex-col h-full justify-between">
-                        <div>
-                          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#26313B] text-xs font-mono">
-                            <span className="text-[#C5FF4A] flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#C5FF4A] animate-pulse" />
-                              GRAYLOG_EVENT_STREAM
-                            </span>
-                            <div className="flex gap-1 text-[10px]">
-                              {['ALL', 'CRIT', 'WARN'].map(f => (
-                                <button
-                                  key={f}
-                                  onClick={() => setSiemFilter(f)}
-                                  className={`px-2 py-0.5 rounded ${
-                                    siemFilter === f ? 'bg-[#C5FF4A] text-[#090B0E] font-bold' : 'text-[#9299A5] hover:text-white'
-                                  }`}
-                                >
-                                  {f}
-                                </button>
+                  {/* Main Content Grid */}
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+                    {/* Left Column: Typography & Description */}
+                    <div className="lg:col-span-6 flex flex-col">
+                      <h3 className="font-display font-bold text-2xl sm:text-3xl text-[#F3F4F6] mb-3 leading-tight">
+                        {project.title}
+                      </h3>
+
+                      <p className={`text-xs font-mono uppercase tracking-wider mb-4 ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`}>
+                        {project.headline}
+                      </p>
+
+                      <p className="text-sm text-[#9E9E9E] font-light leading-relaxed mb-6">
+                        {project.extendedDetails}
+                      </p>
+
+                      {/* Key Technical Metrics */}
+                      <div className="grid grid-cols-3 gap-2 py-4 border-y border-[#2D2D2D] text-xs font-mono mb-6">
+                        {project.metrics.map((m, mIdx) => (
+                          <div key={mIdx}>
+                            <div className="text-[10px] text-[#9E9E9E] uppercase">{m.label}</div>
+                            <div className="text-[#F3F4F6] font-medium truncate">{m.value}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Tech Badges */}
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-2.5 py-1 rounded-md bg-[#000000] border border-[#2D2D2D] text-[11px] font-mono text-[#F3F4F6]"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Right Column: Interactive Project Simulator */}
+                    <div className="lg:col-span-6 bg-[#000000] rounded-xl border border-[#2D2D2D] p-5 flex flex-col justify-between min-h-[340px]">
+                      {/* Project 1: SIEM Stream Simulator */}
+                      {project.interactiveType === 'siem-terminal' && (
+                        <div className="flex flex-col h-full justify-between">
+                          <div>
+                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2D2D2D] text-xs font-mono">
+                              <span className="text-[#2CFF05] flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#2CFF05] animate-pulse" />
+                                GRAYLOG_EVENT_STREAM
+                              </span>
+                              <div className="flex gap-1 text-[10px]">
+                                {['ALL', 'CRIT', 'WARN'].map(f => (
+                                  <button
+                                    key={f}
+                                    onClick={() => setSiemFilter(f)}
+                                    className={`px-2 py-0.5 rounded ${
+                                      siemFilter === f ? 'bg-[#2CFF05] text-[#000000] font-bold' : 'text-[#9E9E9E] hover:text-white'
+                                    }`}
+                                  >
+                                    {f}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="space-y-2 text-[11px] font-mono">
+                              {filteredLogs.map((log, lIdx) => (
+                                <div key={lIdx} className="p-2 rounded bg-[#0D0D0D] border border-[#2D2D2D] leading-tight">
+                                  <span className="text-[#9E9E9E] mr-2">{log.time}</span>
+                                  <span className={`mr-2 font-bold ${log.level === 'CRIT' ? 'text-rose-400' : log.level === 'WARN' ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`}>
+                                    [{log.level}]
+                                  </span>
+                                  <span className="text-[#F3F4F6]">{log.msg}</span>
+                                </div>
                               ))}
                             </div>
                           </div>
 
-                          <div className="space-y-2 text-[11px] font-mono">
-                            {filteredLogs.map((log, lIdx) => (
-                              <div key={lIdx} className="p-2 rounded bg-[#141920] border border-[#26313B] leading-tight">
-                                <span className="text-[#9299A5] mr-2">{log.time}</span>
-                                <span className={`mr-2 font-bold ${log.level === 'CRIT' ? 'text-rose-400' : log.level === 'WARN' ? 'text-amber-400' : 'text-[#C5FF4A]'}`}>
-                                  [{log.level}]
-                                </span>
-                                <span className="text-[#F3F4F6]">{log.msg}</span>
+                          <div className="pt-3 border-t border-[#2D2D2D] text-[10px] font-mono text-[#9E9E9E] flex justify-between">
+                            <span>INGESTION: 1,420 EVT/SEC</span>
+                            <span className="text-[#2CFF05]">GROK: MATCHED</span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Project 2: Flask Auth Bcrypt Demo */}
+                      {project.interactiveType === 'auth-flow' && (
+                        <div className="flex flex-col h-full justify-between font-mono text-xs">
+                          <div>
+                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2D2D2D]">
+                              <span className="text-[#BF00FF] flex items-center gap-1.5">
+                                <KeyRound className="w-3.5 h-3.5" />
+                                BCRYPT_KEY_DERIVATION
+                              </span>
+                              <span className="text-[10px] text-[#9E9E9E]">COST: 12 ROUNDS</span>
+                            </div>
+
+                            <div className="space-y-3">
+                              <div>
+                                <label className="text-[10px] text-[#9E9E9E] block mb-1">PLAINTEXT PAYLOAD</label>
+                                <input
+                                  type="text"
+                                  value={authPassword}
+                                  onChange={(e) => setAuthPassword(e.target.value)}
+                                  className="w-full px-3 py-1.5 rounded bg-[#0D0D0D] border border-[#2D2D2D] text-[#F3F4F6] text-xs focus:border-[#BF00FF] focus:outline-none"
+                                />
                               </div>
-                            ))}
-                          </div>
-                        </div>
 
-                        <div className="pt-3 border-t border-[#26313B] text-[10px] font-mono text-[#9299A5] flex justify-between">
-                          <span>INGESTION: 1,420 EVT/SEC</span>
-                          <span className="text-[#C5FF4A]">GROK: MATCHED</span>
-                        </div>
-                      </div>
-                    )}
+                              <div className="p-2.5 rounded bg-[#0D0D0D] border border-[#2D2D2D]">
+                                <div className="text-[10px] text-[#9E9E9E] mb-1">SALT GENERATION</div>
+                                <div className="text-[#BF00FF] text-[11px] truncate">{saltVal}</div>
+                              </div>
 
-                    {/* Project 2: Flask Auth Bcrypt Demo */}
-                    {project.interactiveType === 'auth-flow' && (
-                      <div className="flex flex-col h-full justify-between font-mono text-xs">
-                        <div>
-                          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#26313B]">
-                            <span className="text-[#C5FF4A] flex items-center gap-1.5">
-                              <KeyRound className="w-3.5 h-3.5" />
-                              BCRYPT_KEY_DERIVATION
-                            </span>
-                            <span className="text-[10px] text-[#9299A5]">COST: 12 ROUNDS</span>
-                          </div>
-
-                          <div className="space-y-3">
-                            <div>
-                              <label className="text-[10px] text-[#9299A5] block mb-1">PLAINTEXT PAYLOAD</label>
-                              <input
-                                type="text"
-                                value={authPassword}
-                                onChange={(e) => setAuthPassword(e.target.value)}
-                                className="w-full px-3 py-1.5 rounded bg-[#141920] border border-[#26313B] text-[#F3F4F6] text-xs focus:border-[#C5FF4A] focus:outline-none"
-                              />
-                            </div>
-
-                            <div className="p-2.5 rounded bg-[#141920] border border-[#26313B]">
-                              <div className="text-[10px] text-[#9299A5] mb-1">SALT GENERATION</div>
-                              <div className="text-[#C5FF4A] text-[11px] truncate">{saltVal}</div>
-                            </div>
-
-                            <div className="p-2.5 rounded bg-[#141920] border border-[#26313B]">
-                              <div className="text-[10px] text-[#9299A5] mb-1">COMPUTED DIGEST</div>
-                              <div className="text-[#F3F4F6] text-[11px] break-all leading-tight">
-                                $2b$12$uE3Z98kL1mQwX89Vp4.o{authPassword.length}K9a8vX41e
+                              <div className="p-2.5 rounded bg-[#0D0D0D] border border-[#2D2D2D]">
+                                <div className="text-[10px] text-[#9E9E9E] mb-1">COMPUTED DIGEST</div>
+                                <div className="text-[#F3F4F6] text-[11px] break-all leading-tight">
+                                  $2b$12$uE3Z98kL1mQwX89Vp4.o{authPassword.length}K9a8vX41e
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div className="pt-3 border-t border-[#26313B] text-[10px] text-[#9299A5] flex justify-between">
-                          <span>COOKIE: HttpOnly; Secure; SameSite=Strict</span>
-                          <span className="text-[#C5FF4A]">CSRF: VALID</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Project 3: FIM Simulator */}
-                    {project.interactiveType === 'fim-simulator' && (
-                      <div className="flex flex-col h-full justify-between font-mono text-xs">
-                        <div>
-                          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#26313B]">
-                            <span className="text-[#C5FF4A] flex items-center gap-1.5">
-                              <FileCheck className="w-3.5 h-3.5" />
-                              FILE_INTEGRITY_MONITOR
-                            </span>
-                            <span className="text-[10px] text-[#9299A5]">SHA-256 MANIFEST</span>
+                          <div className="pt-3 border-t border-[#2D2D2D] text-[10px] text-[#9E9E9E] flex justify-between">
+                            <span>COOKIE: HttpOnly; Secure; SameSite=Strict</span>
+                            <span className="text-[#2CFF05]">CSRF: VALID</span>
                           </div>
+                        </div>
+                      )}
 
-                          <div className="space-y-3">
-                            <div className="p-2.5 rounded bg-[#141920] border border-[#26313B]">
-                              <div className="text-[10px] text-[#9299A5] mb-1">MONITORED TARGET</div>
-                              <div className="text-[#F3F4F6] text-[11px]">/etc/nginx/nginx.conf</div>
+                      {/* Project 3: FIM Simulator */}
+                      {project.interactiveType === 'fim-simulator' && (
+                        <div className="flex flex-col h-full justify-between font-mono text-xs">
+                          <div>
+                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2D2D2D]">
+                              <span className="text-[#2CFF05] flex items-center gap-1.5">
+                                <FileCheck className="w-3.5 h-3.5" />
+                                FILE_INTEGRITY_MONITOR
+                              </span>
+                              <span className="text-[10px] text-[#9E9E9E]">SHA-256 MANIFEST</span>
                             </div>
 
-                            <div className="p-2.5 rounded bg-[#141920] border border-[#26313B]">
-                              <div className="text-[10px] text-[#9299A5] mb-1">BASELINE DIGEST</div>
-                              <div className="text-[#9299A5] text-[10px] break-all">{baselineHash}</div>
-                            </div>
+                            <div className="space-y-3">
+                              <div className="p-2.5 rounded bg-[#0D0D0D] border border-[#2D2D2D]">
+                                <div className="text-[10px] text-[#9E9E9E] mb-1">MONITORED TARGET</div>
+                                <div className="text-[#F3F4F6] text-[11px]">/etc/nginx/nginx.conf</div>
+                              </div>
 
-                            <div className={`p-2.5 rounded border ${fimModified ? 'bg-rose-950/20 border-rose-500/50' : 'bg-[#141920] border-[#26313B]'}`}>
-                              <div className="text-[10px] text-[#9299A5] mb-1">CURRENT SCANNED DIGEST</div>
-                              <div className={`text-[10px] break-all ${fimModified ? 'text-rose-400 font-bold' : 'text-[#C5FF4A]'}`}>
-                                {fimModified ? modifiedHash : baselineHash}
+                              <div className="p-2.5 rounded bg-[#0D0D0D] border border-[#2D2D2D]">
+                                <div className="text-[10px] text-[#9E9E9E] mb-1">BASELINE DIGEST</div>
+                                <div className="text-[#9E9E9E] text-[10px] break-all">{baselineHash}</div>
+                              </div>
+
+                              <div className={`p-2.5 rounded border ${fimModified ? 'bg-rose-950/20 border-rose-500/50' : 'bg-[#0D0D0D] border-[#2D2D2D]'}`}>
+                                <div className="text-[10px] text-[#9E9E9E] mb-1">CURRENT SCANNED DIGEST</div>
+                                <div className={`text-[10px] break-all ${fimModified ? 'text-rose-400 font-bold' : 'text-[#2CFF05]'}`}>
+                                  {fimModified ? modifiedHash : baselineHash}
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div className="pt-3 border-t border-[#26313B] flex items-center justify-between">
-                          <button
-                            onClick={() => setFimModified(!fimModified)}
-                            className="px-3 py-1 rounded bg-[#141920] hover:bg-[#26313B] border border-[#26313B] text-[10px] text-[#C5FF4A]"
-                          >
-                            {fimModified ? 'RESET BASELINE' : 'SIMULATE FILE TAMPER'}
-                          </button>
-                          <span className={`text-[10px] ${fimModified ? 'text-rose-400' : 'text-[#C5FF4A]'}`}>
-                            {fimModified ? 'STATUS: TAMPER DETECTED!' : 'STATUS: UNMODIFIED'}
-                          </span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Project 4: Mobile Mockup / RBAC Inspection */}
-                    {project.interactiveType === 'mobile-mockup' && (
-                      <div className="flex flex-col h-full justify-between font-mono text-xs">
-                        <div>
-                          <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#26313B]">
-                            <span className="text-[#C5FF4A] flex items-center gap-1.5">
-                              <Smartphone className="w-3.5 h-3.5" />
-                              FIRESTORE_SECURITY_RULES
+                          <div className="pt-3 border-t border-[#2D2D2D] flex items-center justify-between">
+                            <button
+                              onClick={() => setFimModified(!fimModified)}
+                              className="px-3 py-1 rounded bg-[#0D0D0D] hover:bg-[#141414] border border-[#2D2D2D] text-[10px] text-[#2CFF05]"
+                            >
+                              {fimModified ? 'RESET BASELINE' : 'SIMULATE FILE TAMPER'}
+                            </button>
+                            <span className={`text-[10px] ${fimModified ? 'text-rose-400' : 'text-[#2CFF05]'}`}>
+                              {fimModified ? 'STATUS: TAMPER DETECTED!' : 'STATUS: UNMODIFIED'}
                             </span>
-                            <span className="text-[10px] text-[#9299A5]">RBAC ISOLATION</span>
-                          </div>
-
-                          <div className="bg-[#141920] p-3 rounded border border-[#26313B] text-[10px] text-[#9299A5] leading-relaxed">
-                            <span className="text-[#C5FF4A]">service</span> cloud.firestore &#123;<br />
-                            &nbsp;&nbsp;<span className="text-[#C5FF4A]">match</span> /databases/&#123;database&#125;/documents &#123;<br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#C5FF4A]">match</span> /properties/&#123;propertyId&#125; &#123;<br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-white">allow read:</span> if request.auth != null;<br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-white">allow write:</span> if request.auth.uid == resource.data.landlordId;<br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
-                            &nbsp;&nbsp;&#125;<br />
-                            &#125;
                           </div>
                         </div>
+                      )}
 
-                        <div className="pt-3 border-t border-[#26313B] text-[10px] text-[#9299A5] flex justify-between">
-                          <span>TENANT ISOLATION: ENFORCED</span>
-                          <span className="text-[#C5FF4A]">MULTI-TENANT: OK</span>
+                      {/* Project 4: Mobile Mockup / RBAC Inspection */}
+                      {project.interactiveType === 'mobile-mockup' && (
+                        <div className="flex flex-col h-full justify-between font-mono text-xs">
+                          <div>
+                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2D2D2D]">
+                              <span className="text-[#BF00FF] flex items-center gap-1.5">
+                                <Smartphone className="w-3.5 h-3.5" />
+                                FIRESTORE_SECURITY_RULES
+                              </span>
+                              <span className="text-[10px] text-[#9E9E9E]">RBAC ISOLATION</span>
+                            </div>
+
+                            <div className="bg-[#0D0D0D] p-3 rounded border border-[#2D2D2D] text-[10px] text-[#9E9E9E] leading-relaxed">
+                              <span className="text-[#BF00FF]">service</span> cloud.firestore &#123;<br />
+                              &nbsp;&nbsp;<span className="text-[#2CFF05]">match</span> /databases/&#123;database&#125;/documents &#123;<br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#2CFF05]">match</span> /properties/&#123;propertyId&#125; &#123;<br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-white">allow read:</span> if request.auth != null;<br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-white">allow write:</span> if request.auth.uid == resource.data.landlordId;<br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;&#125;<br />
+                              &nbsp;&nbsp;&#125;<br />
+                              &#125;
+                            </div>
+                          </div>
+
+                          <div className="pt-3 border-t border-[#2D2D2D] text-[10px] text-[#9E9E9E] flex justify-between">
+                            <span>TENANT ISOLATION: ENFORCED</span>
+                            <span className="text-[#2CFF05]">MULTI-TENANT: OK</span>
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Bottom Card Footer */}
-              <div className="flex items-center justify-between pt-4 border-t border-[#26313B] text-xs font-mono text-[#9299A5]">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C5FF4A]" />
-                  <span>STATUS: COMPLETE & TESTED</span>
+                {/* Bottom Card Footer */}
+                <div className="flex items-center justify-between pt-4 border-t border-[#2D2D2D] text-xs font-mono text-[#9E9E9E]">
+                  <div className="flex items-center gap-2">
+                    <span className={`w-1.5 h-1.5 rounded-full ${isPurpleTheme ? 'bg-[#BF00FF]' : 'bg-[#2CFF05]'}`} />
+                    <span>STATUS: COMPLETE & TESTED</span>
+                  </div>
+
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1 text-[#F3F4F6] hover:text-[#2CFF05] transition-colors"
+                  >
+                    <span>INQUIRE AUDIT DETAILS</span>
+                    <ArrowUpRight className={`w-3.5 h-3.5 ${isPurpleTheme ? 'text-[#BF00FF]' : 'text-[#2CFF05]'}`} />
+                  </a>
                 </div>
-
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-1 text-[#F3F4F6] hover:text-[#C5FF4A] transition-colors"
-                >
-                  <span>INQUIRE AUDIT DETAILS</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#C5FF4A]" />
-                </a>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

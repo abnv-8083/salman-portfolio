@@ -88,10 +88,10 @@ export default function Contact() {
     >
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono tracking-[0.25em] text-[#C5FF4A] uppercase">
+        <span className="text-xs font-mono tracking-[0.25em] text-[#2CFF05] uppercase">
           06 / INITIATE DIALOGUE
         </span>
-        <div className="h-[1px] w-12 bg-[#26313B]" />
+        <div className="h-[1px] w-12 bg-[#2D2D2D]" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -103,38 +103,40 @@ export default function Contact() {
               className="font-display font-bold text-section-headline text-[#F3F4F6] uppercase leading-[1.05] mb-8"
             >
               LET'S SECURE<br />
-              <span className="text-[#C5FF4A]">WHAT MATTERS.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2CFF05] to-[#BF00FF]">
+                WHAT MATTERS.
+              </span>
             </h2>
 
-            <p className="text-body-editorial font-light mb-10 max-w-lg">
+            <p className="text-body-editorial font-light mb-10 max-w-lg text-[#9E9E9E]">
               Available for application penetration testing, vulnerability research collaborations, and security audits. Let’s identify and resolve critical security risks.
             </p>
 
             {/* Direct Email Pill */}
-            <div className="p-6 rounded-2xl bg-[#141920] border border-[#26313B] mb-8">
-              <div className="text-xs font-mono text-[#9299A5] uppercase tracking-wider mb-2">
+            <div className="p-6 rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D] mb-8">
+              <div className="text-xs font-mono text-[#9E9E9E] uppercase tracking-wider mb-2">
                 DIRECT INBOX
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  className="font-display font-semibold text-xl text-[#F3F4F6] hover:text-[#C5FF4A] transition-colors truncate"
+                  className="font-display font-semibold text-xl text-[#F3F4F6] hover:text-[#2CFF05] transition-colors truncate"
                 >
                   {PERSONAL_INFO.email}
                 </a>
 
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#090B0E] hover:bg-white/[0.05] border border-[#26313B] text-xs font-mono text-[#F3F4F6] transition-colors shrink-0"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#000000] hover:bg-white/[0.05] border border-[#2D2D2D] text-xs font-mono text-[#F3F4F6] transition-colors shrink-0"
                 >
                   {copiedEmail ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-[#C5FF4A]" />
-                      <span className="text-[#C5FF4A]">COPIED</span>
+                      <Check className="w-3.5 h-3.5 text-[#2CFF05]" />
+                      <span className="text-[#2CFF05]">COPIED</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-[#9299A5]" />
+                      <Copy className="w-3.5 h-3.5 text-[#9E9E9E]" />
                       <span>COPY</span>
                     </>
                   )}
@@ -144,7 +146,7 @@ export default function Contact() {
 
             {/* Verified Channels */}
             <div className="space-y-3">
-              <div className="text-xs font-mono text-[#9299A5] uppercase tracking-wider mb-2">
+              <div className="text-xs font-mono text-[#9E9E9E] uppercase tracking-wider mb-2">
                 AUTHENTIC CHANNELS
               </div>
               <div className="flex flex-wrap gap-3">
@@ -152,48 +154,48 @@ export default function Contact() {
                   href={PERSONAL_INFO.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>GITHUB</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#9299A5]" />
+                  <ArrowUpRight className="w-3 h-3 text-[#9E9E9E]" />
                 </a>
 
                 <a
                   href={PERSONAL_INFO.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#BF00FF]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
                 >
-                  <LinkedinIcon className="w-4 h-4 text-[#C5FF4A]" />
+                  <LinkedinIcon className="w-4 h-4 text-[#BF00FF]" />
                   <span>LINKEDIN</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#9299A5]" />
+                  <ArrowUpRight className="w-3 h-3 text-[#9E9E9E]" />
                 </a>
 
                 <a
                   href={PERSONAL_INFO.socials.medium}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#141920] border border-[#26313B] hover:border-[#C5FF4A]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0D0D0D] border border-[#2D2D2D] hover:border-[#2CFF05]/50 text-xs font-mono text-[#F3F4F6] transition-colors"
                 >
-                  <MediumIcon className="w-4 h-4 text-[#C5FF4A]" />
+                  <MediumIcon className="w-4 h-4 text-[#2CFF05]" />
                   <span>MEDIUM</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#9299A5]" />
+                  <ArrowUpRight className="w-3 h-3 text-[#9E9E9E]" />
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="pt-8 text-xs font-mono text-[#9299A5] flex items-center gap-2">
-            <MapPin className="w-3.5 h-3.5 text-[#C5FF4A]" />
+          <div className="pt-8 text-xs font-mono text-[#9E9E9E] flex items-center gap-2">
+            <MapPin className="w-3.5 h-3.5 text-[#2CFF05]" />
             <span>BASE OF OPERATIONS: KERALA, INDIA</span>
           </div>
         </div>
 
         {/* Right Column: Encrypted Inquiry Gateway Form */}
         <div className="lg:col-span-6">
-          <div className="p-8 sm:p-10 rounded-2xl bg-[#141920] border border-[#26313B]">
-            <div className="text-xs font-mono text-[#C5FF4A] uppercase tracking-wider mb-2">
+          <div className="p-8 sm:p-10 rounded-2xl bg-[#0D0D0D] border border-[#2D2D2D]">
+            <div className="text-xs font-mono text-[#2CFF05] uppercase tracking-wider mb-2">
               DISPATCH GATEWAY
             </div>
             <h3 className="font-display font-bold text-2xl text-[#F3F4F6] mb-6">
@@ -205,7 +207,7 @@ export default function Contact() {
                 className={`p-3.5 rounded-xl mb-6 text-xs font-mono ${
                   submissionFeedback.type === 'error'
                     ? 'bg-rose-950/30 border border-rose-500/50 text-rose-300'
-                    : 'bg-[#C5FF4A]/10 border border-[#C5FF4A]/40 text-[#C5FF4A]'
+                    : 'bg-[#2CFF05]/10 border border-[#2CFF05]/40 text-[#2CFF05]'
                 }`}
               >
                 {submissionFeedback.message}
@@ -214,7 +216,7 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-mono text-[#9299A5] mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-[#9E9E9E] mb-1.5 uppercase">
                   NAME / ENTITY *
                 </label>
                 <input
@@ -223,12 +225,12 @@ export default function Contact() {
                   placeholder="e.g. Alex Rivera"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#090B0E] border border-[#26313B] focus:border-[#C5FF4A] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#2CFF05] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#9299A5] mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-[#9E9E9E] mb-1.5 uppercase">
                   CONTACT EMAIL *
                 </label>
                 <input
@@ -237,18 +239,18 @@ export default function Contact() {
                   placeholder="alex@organization.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#090B0E] border border-[#26313B] focus:border-[#C5FF4A] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#2CFF05] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#9299A5] mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-[#9E9E9E] mb-1.5 uppercase">
                   ENGAGEMENT SCOPE
                 </label>
                 <select
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#090B0E] border border-[#26313B] focus:border-[#C5FF4A] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#BF00FF] text-[#F3F4F6] text-sm focus:outline-none transition-colors"
                 >
                   <option value="Web Application Penetration Test">Web Application Penetration Test</option>
                   <option value="API Security & Logic Audit">API Security & Logic Audit</option>
@@ -258,7 +260,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#9299A5] mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-[#9E9E9E] mb-1.5 uppercase">
                   MESSAGE / SCOPE DETAILS *
                 </label>
                 <textarea
@@ -267,14 +269,14 @@ export default function Contact() {
                   placeholder="Briefly describe your systems, objectives, or testing requirements..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#090B0E] border border-[#26313B] focus:border-[#C5FF4A] text-[#F3F4F6] text-sm focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[#000000] border border-[#2D2D2D] focus:border-[#2CFF05] text-[#F3F4F6] text-sm focus:outline-none transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 px-6 rounded-xl bg-[#C5FF4A] hover:bg-[#b8f53a] disabled:opacity-50 text-[#090B0E] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(197,255,74,0.15)]"
+                className="w-full py-3.5 px-6 rounded-xl bg-[#2CFF05] hover:bg-[#28e604] disabled:opacity-50 text-[#000000] font-display font-semibold text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_20px_rgba(44,255,5,0.25)]"
                 data-cursor-text="SEND"
               >
                 <span>{isSubmitting ? 'DISPATCHING...' : 'DISPATCH INQUIRY'}</span>

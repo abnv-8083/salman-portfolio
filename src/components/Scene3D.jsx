@@ -32,40 +32,52 @@ export default function Scene3D({ className = '' }) {
     const group = new THREE.Group();
     scene.add(group);
 
-    // 1. Primary Cryptographic Lattice (Icosahedron in subtle border color)
+    // 1. Primary Cryptographic Lattice (Icosahedron in Electric Purple 0xBF00FF & Charcoal 0x2D2D2D)
     const geoOuter = new THREE.IcosahedronGeometry(2.1, 1);
     const wireOuter = new THREE.WireframeGeometry(geoOuter);
     const matOuter = new THREE.LineBasicMaterial({
-      color: 0x26313B,
+      color: 0xBF00FF,
       transparent: true,
-      opacity: 0.8
+      opacity: 0.55
     });
     const meshOuter = new THREE.LineSegments(wireOuter, matOuter);
     group.add(meshOuter);
 
-    // 2. Inner Lime Core (Octahedron in #C5FF4A accent)
+    // 2. Inner Neon Core (Octahedron in vibrant Neon Green 0x2CFF05)
     const geoInner = new THREE.OctahedronGeometry(1.2, 0);
     const wireInner = new THREE.WireframeGeometry(geoInner);
     const matInner = new THREE.LineBasicMaterial({
-      color: 0xC5FF4A,
+      color: 0x2CFF05,
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.95,
       linewidth: 1.5
     });
     const meshInner = new THREE.LineSegments(wireInner, matInner);
     group.add(meshInner);
 
-    // 3. Subtle Latitude Ring in #C5FF4A muted
+    // 3. Subtle Latitude Ring in Electric Purple 0xBF00FF
     const geoRing = new THREE.RingGeometry(2.38, 2.4, 48);
     const matRing = new THREE.MeshBasicMaterial({
-      color: 0xC5FF4A,
+      color: 0xBF00FF,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.25
+      opacity: 0.4
     });
     const ringMesh = new THREE.Mesh(geoRing, matRing);
     ringMesh.rotation.x = Math.PI / 2.2;
     group.add(ringMesh);
+
+    // 4. Secondary Horizontal Ring in Neon Green 0x2CFF05
+    const geoRing2 = new THREE.RingGeometry(1.8, 1.82, 48);
+    const matRing2 = new THREE.MeshBasicMaterial({
+      color: 0x2CFF05,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.35
+    });
+    const ringMesh2 = new THREE.Mesh(geoRing2, matRing2);
+    ringMesh2.rotation.y = Math.PI / 4;
+    group.add(ringMesh2);
 
     // Controlled mouse tilt
     let mouseX = 0;
@@ -142,6 +154,8 @@ export default function Scene3D({ className = '' }) {
       matInner.dispose();
       geoRing.dispose();
       matRing.dispose();
+      geoRing2.dispose();
+      matRing2.dispose();
       renderer.dispose();
 
       if (container.contains(renderer.domElement)) {
